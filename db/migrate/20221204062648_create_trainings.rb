@@ -1,11 +1,11 @@
 class CreateTrainings < ActiveRecord::Migration[6.1]
   def change
     create_table :trainings do |t|
-      t.string :name
-      t.text :introduction
-      t.string :result
-      t.text :food
-      t.string :goal
+      t.string :name, null: false
+      t.text :introduction, null: false
+      t.string :result, null: false
+      t.text :food, null: false
+      t.string :goal, null: false
       t.integer :user_id
 
       t.timestamps

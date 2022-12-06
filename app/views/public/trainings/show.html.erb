@@ -1,0 +1,29 @@
+<div class="container">
+  <h2>トレーニング情報</h2>
+  <div class='row'>
+    <div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>トレーニング名</th>
+            <th>期待できる効果</th>
+            <th>達成目安</th>
+            <th>内容</th>
+            <th>食生活</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= @training.name %></td>
+            <td><%= @training.result %></td>
+            <td><%= @training.goal %></td>
+            <td><%= @training.introduction %></td>
+            <td><%= @training.food %></td>
+            <td><%= link_to "編集", edit_training_path %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
