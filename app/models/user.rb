@@ -4,11 +4,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          
+  has_many :trainings, dependent: :destroy
   has_one_attached :profile_image
   enum gender: { man:false, woman:true }
   enum generation: { Z:0, Y:1, X:2 }
   validates :name, presence:true
-  validates :introduction, presence:
+  validates :introduction, presence:true
   
   def get_profile_image
     (profile_image.attached?) ? profile_image : 'no_image.jpg'

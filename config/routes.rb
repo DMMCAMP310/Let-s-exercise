@@ -21,7 +21,7 @@ Rails.application.routes.draw do
       get 'follows' => 'relationships#follows', as: 'follows'
       get 'followers' => 'relationships#followers', as: 'followers'
     end
-    resources :trainings, only: [:show, :edit, :index, :create, :update, :destroy] do
+    resources :trainings, only: [:show, :edit, :index, :new, :create, :update, :destroy] do
       resource :likes, only: [:create, :destroy]
       resources :training_comments, only: [:crete, :destroy]
     end

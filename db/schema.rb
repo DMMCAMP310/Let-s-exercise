@@ -63,8 +63,8 @@ ActiveRecord::Schema.define(version: 2022_12_05_133237) do
   end
 
   create_table "likes", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "training_id"
+    t.integer "user_id", null: false
+    t.integer "training_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -77,8 +77,8 @@ ActiveRecord::Schema.define(version: 2022_12_05_133237) do
   end
 
   create_table "relationships", force: :cascade do |t|
-    t.integer "following_id"
-    t.integer "follower_id"
+    t.integer "following_id", null: false
+    t.integer "follower_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -89,19 +89,19 @@ ActiveRecord::Schema.define(version: 2022_12_05_133237) do
   end
 
   create_table "training_comments", force: :cascade do |t|
-    t.text "comment"
-    t.integer "user_id"
-    t.integer "training_id"
+    t.text "comment", null: false
+    t.integer "user_id", null: false
+    t.integer "training_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "trainings", force: :cascade do |t|
-    t.string "name"
-    t.text "introduction"
-    t.string "result"
-    t.text "food"
-    t.string "goal"
+    t.string "name", null: false
+    t.text "introduction", null: false
+    t.string "result", null: false
+    t.text "food", null: false
+    t.string "goal", null: false
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
