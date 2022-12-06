@@ -8,8 +8,8 @@
       <th>自己紹介</th>
     </tr>
   </thead>
-  <% users.each do |user| %>
   <tbody>
+    <% users.each do |user| %>
     <tr>
       <td><%= image_tag user.get_profile_image, size: '100x100' %></td>
       <td><%= link_to user.name, user_path(user.id) %></td>
@@ -17,6 +17,6 @@
       <td><%= user.age %>歳</td>
       <td><%= user.introduction %></td>
     </tr>
+    <% end %>
   </tbody>
-  <% end %>
   </table>

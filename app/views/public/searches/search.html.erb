@@ -1,0 +1,47 @@
+<div class="container">
+  <div class='row'>
+    <h2>Results index</h2>
+
+    <table class="table table-hover table-inverse">
+    <!--検索対象モデルがUserの時 -->
+      <% if @range == "User" %>
+        <thead>
+          <tr>
+            <th>プロフィール画像</th>
+            <th>ニックネーム</th>
+            <th>性別</th>
+            <th>年齢</th>
+            <th>自己紹介</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+          <tr>
+            <td><%= image_tag user.get_profile_image, size: '100x100' %></td>
+            <td><%= link_to user.name, user_path(user.id) %></td>
+            <td><%= user.gender_i18n %></td>
+            <td><%= user.age %>歳</td>
+            <td><%= user.introduction %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      <% else %>
+    <!--検索対象モデルがUserではない時(= 検索対象モデルがBookの時) -->
+        <thead>
+          <tr>
+            <th>トレーニング名</th>
+            <th>期待できる効果</th>
+            <th>達成目安</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @trainings.each do |training| %>
+          <tr>
+            <td><%= link_to training.name, training_path(training) %></td>
+            <td><%= training.result %></td>
+            <td><%= training.goal %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      <% end %>
+    </table>
