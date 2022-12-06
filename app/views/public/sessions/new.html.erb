@@ -3,7 +3,7 @@
     <div class='mx-auto col-11 col-sm-10 col-lg-8 col-xl-6'>
       <h2>ログイン</h2>
     
-      <%= form_with model: @user, url: user_registration_path do |f| %>
+      <%= form_with model: @user, url: user_session_path do |f| %>
         <div class="field">
           <%= f.label :メールアドレス %><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email" %>

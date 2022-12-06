@@ -1,0 +1,6 @@
+ja: #日本語設定を行う
+  enums: #enumの設定を行う
+    user:
+      gender:
+        man: 男性
+        woman: 女性

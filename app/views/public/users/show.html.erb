@@ -1,0 +1,22 @@
+<div class="container">
+  <div class='row'>
+    <h2>会員情報</h2>
+    <div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th><%= image_tag @user.get_profile_image, size: '100x100' %><%= @user.name %></th>
+            <th><%= @user.gender_i18n %></th>
+            <th><%= @user.age %>歳</th>
+            <th><%= link_to "編集", edit_user_path %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= @user.introduction %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
