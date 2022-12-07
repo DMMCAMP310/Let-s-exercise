@@ -28,13 +28,13 @@ class Public::SessionsController < Devise::SessionsController
   
   protected
   
-   # 退会しているかを判断するメソッド
+    # 会員の論理削除のための記述。退会後は、同じアカウントでは利用できない。
   def user_state
     @user = User.find_by(email: params[:user][:email])
     #アカウントが確認できなかったらメソッド終了
-    return if!@user
+    return if !@user
     #取得したアカウントのパスワードが一致しているかを判別
-    if @user.valid_password?(params[:customer][:password]) && (@user.is_deleted == true)
+    if @user.valid_password?(params[:user][:password]) && (@user.is_deleted == true)
       flash[:notice] = "退会済みです。再度登録をお願いいたします。"
       redirect_to new_user_registration_path
     else

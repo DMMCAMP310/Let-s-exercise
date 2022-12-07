@@ -29,4 +29,9 @@ class User < ApplicationRecord
       user.name = "guestuser"
     end
   end
+  
+  #ログイン時に退会済みのユーザーが同じアカウントでログイン出来ないよう制約を設けています
+  def active_for_authentication?
+    super && (is_deleted == false)
+  end
 end

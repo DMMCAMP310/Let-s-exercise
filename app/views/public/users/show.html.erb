@@ -8,7 +8,11 @@
             <th><%= image_tag @user.get_profile_image, size: '100x100' %><%= @user.name %></th>
             <th><%= @user.gender_i18n %></th>
             <th><%= @user.age %>歳</th>
-            <th><%= link_to "編集", edit_user_path %></th>
+            <th>
+              <% if @user.name != "guestuser" %>
+                <%= link_to "編集", edit_user_path %>
+              <% end %>
+            </th>
           </tr>
         </thead>
         <tbody>
