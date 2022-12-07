@@ -1,4 +1,5 @@
 class Public::UsersController < ApplicationController
+  before_action :authenticate_user!
   before_action :ensure_correct_user, only: [:edit, :update]
   def index
     @users = User.all
@@ -19,6 +20,18 @@ class Public::UsersController < ApplicationController
     else
       render 'edit'
     end
+  end
+  
+  def unsubscribe
+    @user = current_user
+  end
+  
+  def withdrawal
+    @user = current_user
+    @user.update(is_deleted: true)
+    reset_session
+    flash[:notice] = "退会処理を実行いたしました"
+    redirect_to root_path
   end
 
   private

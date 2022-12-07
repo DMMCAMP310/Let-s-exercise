@@ -11,13 +11,11 @@
   <tbody>
     <% users.each do |user| %>
     <tr>
-      <% if user.is_deleted != true %>
       <td><%= image_tag user.get_profile_image, size: '100x100' %></td>
-      <td><%= link_to user.name, user_path(user.id) %></td>
+      <td><%= link_to user.name, admin_user_path(user.id) %></td>
       <td><%= user.gender_i18n %></td>
       <td><%= user.age %>歳</td>
       <td><%= user.introduction %></td>
-      <% end %>
     </tr>
     <% end %>
   </tbody>
