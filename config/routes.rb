@@ -27,6 +27,8 @@ Rails.application.routes.draw do
     end
     resources :chats, only: [:show, :create]
     get 'search' => 'searches#search'
+    get '/users/unsubscribe' => 'users#unsubscribe'
+    patch '/users/withdraw' => 'users#withdraw'
   end
   
   namespace :admin do
