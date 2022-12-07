@@ -6,13 +6,13 @@
       <th>達成目安</th>
     </tr>
   </thead>
-  <% trainings.each do |training| %>
   <tbody>
+    <% trainings.each do |training| %>
     <tr>
       <td><%= link_to training.name, training_path(training) %></td>
       <td><%= training.result %></td>
       <td><%= training.goal %></td>
     </tr>
+    <% end %>
   </tbody>
-  <% end %>
 </table>
