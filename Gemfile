@@ -61,3 +61,4 @@ gem 'net-pop'
 
 gem 'devise'
 gem "enum_help"
+gem 'jquery-rails'

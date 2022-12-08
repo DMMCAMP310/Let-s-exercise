@@ -5,6 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
          
   has_many :trainings, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :liked_trainings, through: :likes, source: :training
+  
   has_one_attached :profile_image
   enum gender: { man:false, woman:true }
   enum generation: { Z:0, Y:1, X:2 }

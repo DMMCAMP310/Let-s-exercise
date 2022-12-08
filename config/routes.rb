@@ -26,6 +26,9 @@ Rails.application.routes.draw do
     resources :trainings, only: [:show, :edit, :index, :new, :create, :update, :destroy] do
       resource :likes, only: [:create, :destroy]
       resources :training_comments, only: [:crete, :destroy]
+      collection do
+        get :likes
+      end
     end
     resources :chats, only: [:show, :create]
     get 'search' => 'searches#search'

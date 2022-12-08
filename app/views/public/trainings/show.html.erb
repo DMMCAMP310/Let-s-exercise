@@ -11,6 +11,7 @@
             <th>内容</th>
             <th>食生活</th>
             <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -20,6 +21,9 @@
             <td><%= @training.goal %></td>
             <td><%= @training.introduction %></td>
             <td><%= @training.food %></td>
+            <td id="like_btn_<%= @training.id %>">
+              <%= render 'public/likes/like', training: @training %>
+            </td>
             <td><%= link_to "編集", edit_training_path %></td>
           </tr>
         </tbody>
