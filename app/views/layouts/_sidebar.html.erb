@@ -6,6 +6,7 @@
       <li><%= link_to "会員一覧", users_path %></li>
       <li><%= link_to "トレーニング一覧", trainings_path %></li>
       <li><%= link_to "トレーニング作成", new_training_path %></li>
+      <li><%= link_to "いいね一覧", likes_trainings_path %></li>
       <li><%#= link_to "検索する", searches_path %></li>
       <li><%= link_to 'ログアウト', destroy_user_session_path,method: :delete %></li>
     <% elsif admin_signed_in? %>
