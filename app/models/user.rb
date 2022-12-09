@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :trainings, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :liked_trainings, through: :likes, source: :training
+  has_many :training_comments, dependent: :destroy
   
   has_one_attached :profile_image
   enum gender: { man:false, woman:true }

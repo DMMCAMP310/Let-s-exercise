@@ -28,6 +28,8 @@
           </tr>
         </tbody>
       </table>
+      <div id="comments-area"><%= render "public/training_comments/comment", training: @training %></div>
+      <div id="comments-area"><%= render "public/training_comments/commentform", training: @training, training_comment: @training_comment %></div>
     </div>
   </div>
 </div>

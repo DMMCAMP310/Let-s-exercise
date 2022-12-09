@@ -1,0 +1,8 @@
+<div>
+  <p>コメント件数<%= training.training_comments.count %></p>
+    <% training.training_comments.each do |training_comment| %>
+      <%= training_comment.user.name %>
+      <%= training_comment.created_at.strftime("%Y/%m/%d") %><%= training_comment.comment %>
+      <td><%= link_to "Destroy", training_training_comment_path(training_comment.training, training_comment), method: :delete, remote: true, class:"btn btn-danger" %></td>
+    <% end %>
+</div>

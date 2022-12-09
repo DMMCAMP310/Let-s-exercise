@@ -2,6 +2,7 @@ class Training < ApplicationRecord
   belongs_to :user
   has_many :likes, dependent: :destroy
   has_many :liked_users, through: :likes, source: :user
+  has_many :training_comments, dependent: :destroy
   
   def self.looks(search, word)
     if search != ""
