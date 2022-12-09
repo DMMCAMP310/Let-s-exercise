@@ -2,6 +2,7 @@
   <p>コメント件数<%= training.training_comments.count %></p>
     <% training.training_comments.each do |training_comment| %>
       <%= link_to training_comment.user.name, user_path(training.user.id) %><br>
+      <!--作成日時からの経過時間を表示する-->
       <%= time_ago_in_words(training_comment.created_at) %>前<br>
       <%= training_comment.comment %><br>
       <div>

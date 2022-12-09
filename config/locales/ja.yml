@@ -5,7 +5,7 @@ ja: #日本語設定を行う
         man: 男性
         woman: 女性
         
-  datetime:
+  datetime: #datetimeの設定を行う
     distance_in_words:
       about_x_hours:
         one: 約1時間
