@@ -5,6 +5,7 @@
       <th>期待できる効果</th>
       <th>達成目安</th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -16,6 +17,7 @@
       <td id= "like_btn_<%= training.id %>">
         <%= render 'public/likes/like', training: training %>
       </td>
+      <td><p>コメント件数<%= training.training_comments.count %></p></td>
     </tr>
     <% end %>
   </tbody>

@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     patch '/users/:id/withdrawal' => 'users#withdrawal', as: 'withdrawal'
     resources :trainings, only: [:show, :edit, :index, :new, :create, :update, :destroy] do
       resource :likes, only: [:create, :destroy]
-      resources :training_comments, only: [:crete, :destroy]
+      resources :training_comments, only: [:create, :destroy]
       collection do
         get :likes
       end
