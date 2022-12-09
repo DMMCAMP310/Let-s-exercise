@@ -1,0 +1,22 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>トレーニング名</th>
+      <th>期待できる効果</th>
+      <th>達成目安</th>
+      <th>内容</th>
+      <th>食生活</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% trainings.each do |training| %>
+    <tr>
+      <td><%= training.name %></td>
+      <td><%= training.result %></td>
+      <td><%= training.goal %></td>
+      <td><%= training.introduction %></td>
+      <td><%= training.food %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

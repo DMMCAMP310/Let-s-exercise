@@ -1,0 +1,22 @@
+<header>
+  <nav class="sidebar__nav">
+    <% if user_signed_in? %>
+    <ul class="navbar-nav">
+      <li><%= link_to "マイページ", user_path(current_user.id) %></li>
+      <li><%= link_to "会員一覧", users_path %></li>
+      <li><%= link_to "トレーニング一覧", trainings_path %></li>
+      <li><%= link_to "トレーニング作成", new_training_path %></li>
+      <li><%= link_to "いいね一覧", likes_trainings_path %></li>
+      <li><%#= link_to "検索する", searches_path %></li>
+      <li><%= link_to 'ログアウト', destroy_user_session_path,method: :delete %></li>
+    <% elsif admin_signed_in? %>
+      <li><%= link_to "会員一覧", admin_users_path %></li>
+      <li><%= link_to "トレーニング一覧", admin_trainings_path %></li>
+      <li><%= link_to 'ログアウト', destroy_admin_session_path,method: :delete %></li>
+    <% else %>
+      <li>logo</li>
+      <li><%= link_to "top", root_path %></li>
+    </ul>
+    <% end %>
+  </nav>
+</header>

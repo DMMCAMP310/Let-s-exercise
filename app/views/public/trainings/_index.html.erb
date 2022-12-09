@@ -1,0 +1,24 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>トレーニング名</th>
+      <th>期待できる効果</th>
+      <th>達成目安</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% trainings.each do |training| %>
+    <tr>
+      <td><%= link_to training.name, training_path(training) %></td>
+      <td><%= training.result %></td>
+      <td><%= training.goal %></td>
+      <td id= "like_btn_<%= training.id %>">
+        <%= render 'public/likes/like', training: training %>
+      </td>
+      <td><p>コメント件数<%= training.training_comments.count %></p></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,25 @@
+<%= form_with model:training, local:true do |f| %>
+  <div class="form-group">
+    <%= f.label :トレーニング名 %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="form-group">
+    <%= f.label :内容 %>
+    <%= f.text_area :introduction, class: "form-control introduction" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :期待される効果 %>
+    <%= f.text_field :result %>
+  </div>
+  <div class="form-group">
+    <%= f.label :食生活 %>
+    <%= f.text_area :food, class: "form-control food" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :達成目安 %>
+    <%= f.text_field :goal %>
+  </div>
+  <div class="form-group">
+    <%= f.submit class: 'btn btn-secondary' %>
+  </div>
+<% end %>

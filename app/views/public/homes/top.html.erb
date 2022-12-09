@@ -1,0 +1,15 @@
+<div class="btn-wrapper col-10 mx-auto">
+  <h1>Let's Exercise</h1>
+  <P>
+    自分にあったオリジナルのトレーニングをつくろう
+  </P>
+  <div class="row">
+    <%= link_to 'ゲストログイン（閲覧用）', public_users_guest_sign_in_path, method: :post %>
+  </div>
+  <div class="row">
+    <%= link_to 'Log in',new_user_session_path %>
+  </div>
+  <div class="row">
+    <%= link_to 'Sign Up',new_user_registration_path %>
+  </div>
+</div>
