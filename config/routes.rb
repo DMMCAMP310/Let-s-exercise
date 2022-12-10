@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     resources :users, only: [:show, :edit, :index, :update] do
       resource :relationships, only: [:create, :destroy]
-      get 'follows' => 'relationships#follows', as: 'follows'
+      get 'follows' => 'relationships#followings', as: 'followings'
       get 'followers' => 'relationships#followers', as: 'followers'
     end
     get '/users/:id/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
