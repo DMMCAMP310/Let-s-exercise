@@ -1,0 +1,50 @@
+<header class="border-bottom bg-header">
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+      <% if admin_signed_in? %>
+        <a class="col navbar-brand" href="/admin/users"><span>MakeTrain</span></a>
+      <% elsif user_signed_in? %>
+        <a class="col navbar-brand" href="/trainings"><span>MakeTrain</span></a>
+      <% else %>
+        <a class="col navbar-brand" href="/"><span>MakeTrain</span></a>
+      <% end %>
+
+      <div class="d-flex flex-column mt-2">
+        <button class="col-3 align-self-center navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav ml-auto">
+          <% if user_signed_in? %>
+            <li class="text-center mx-2"><%= link_to "トレーニング作成", new_training_path,class: 'nav-link text-dark border rounded rounded-3 bg-white' %></li>
+            <li class="text-center mx-2"><%= link_to 'ログアウト', destroy_user_session_path,method: :delete,class: 'nav-link text-dark border rounded rounded-3 bg-white' %></li>
+
+          <% elsif admin_signed_in? %>
+            <li class="text-center mx-2"><%= link_to "会員一覧", admin_users_path,class: 'nav-link text-dark border rounded rounded-3 bg-white' %></li>
+            <li class="text-center mx-2"><%= link_to "トレーニング一覧", admin_trainings_path,class: 'nav-link text-dark border rounded rounded-3 bg-white' %></li>
+            <li class="text-center mx-2"><%= link_to 'ログアウト', destroy_admin_session_path,method: :delete,class: 'nav-link text-dark border rounded rounded-3 bg-white' %></li>
+
+          <% else %>
+            <li class="text-center mx-2">
+              <%= link_to "新規登録", new_user_registration_path,class: 'nav-link text-dark border rounded rounded-3 bg-white' %>
+            </li>
+            <li class="text-center mx-2">
+              <%= link_to "ログイン", new_user_session_path,class: 'nav-link text-dark border rounded rounded-3 bg-white' %>
+            </li>
+          <% end %>
+          </ul>
+        </div>
+
+        <div class="d-flex flex-row-reverse mt-2">
+          <%= form_with url: search_path, local: true, method: :get do |f| %>
+            <%= f.text_field :word %>
+            <%= f.select :range, options_for_select([['User'], ['Training']]) %>
+            <%= f.submit "検索", class: "btn btn-primaty" %>
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+  </nav>
+</header>

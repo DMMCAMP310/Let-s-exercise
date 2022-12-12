@@ -6,41 +6,41 @@
       <%= form_with model: @user, url: user_registration_path do |f| %>
         <%= render "public/shared/error_messages", resource: resource %>
 
-        <div class="field">
-          <%= f.label :ニックネーム %><br />
+        <div class="field row mb-3">
+          <%= f.label :ニックネーム, class: 'col-md-4' %><br />
           <%= f.text_field :name, autofocus: true, placeholder: "ニックネーム" %>
         </div>
 
-        <div class="field">
-          <%= f.label :メールアドレス %><br />
+        <div class="field row mb-3">
+          <%= f.label :メールアドレス, class: 'col-md-4' %><br />
           <%= f.text_field :email, autofocus: true, placeholder: "sample@example" %>
         </div>
         
-        <div class="field">
-          <%= f.label :性別 %><br />
+        <div class="field row mb-3">
+          <%= f.label :性別, class: 'col-md-4' %><br />
           <%= f.radio_button :gender, 'man' %>
           <%= f.label :gender, '男性' %>
           <%= f.radio_button :gender, 'woman' %>
           <%= f.label :gender, '女性' %>
         </div>
         
-        <div class="field">
-          <%= f.label :年齢 %><br />
+        <div class="field row mb-3">
+          <%= f.label :年齢, class: 'col-md-4' %><br />
           <%= f.text_field :age, autofocus: true, placeholder: "20" %>
         </div>
         
         <div class="form-group">
           <%= f.label :自己紹介 %><br />
-          <%= f.text_area :introduction, autofocus: true, class: "form-control introduction", placeholder: "はじめまして。今回は正月太りをしてしまったためなにかいいトレーニングはないかを探すため登録しました。よろしくお願いします。" %>
+          <%= f.text_area :introduction, autofocus: true, class: "form-control", style: "height:8rem;", placeholder: "はじめまして。今回は正月太りをしてしまったためなにかいいトレーニングはないかを探すため登録しました。よろしくお願いします。" %>
         </div>
 
-        <div class="field">
-          <%= f.label :パスワード（６文字以内） %><br>
+        <div class="field row mb-3">
+          <%= f.label :パスワード（６文字以内）, class: 'col-md-4' %><br>
           <%= f.password_field :password, autocomplete: "new-password" %>
         </div>
 
-        <div class="field">
-          <%= f.label :パスワード確認 %><br />
+        <div class="field row mb-3">
+          <%= f.label :パスワード確認, class: 'col-md-4' %><br />
           <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
         </div>
 

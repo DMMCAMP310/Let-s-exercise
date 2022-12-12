@@ -11,19 +11,12 @@
   </head>
 
   <body>
-    <%= render 'layouts/sidebar' %>
+    <%= render 'layouts/header' %>
     <main>
-      <% if user_signed_in? %>
-        <div class="search_form">
-          <%= form_with url: search_path, local: true, method: :get do |f| %>
-            <%= f.text_field :word %>
-            <%= f.select :range, options_for_select([['User'], ['Training']]) %>
-            <%= f.submit "検索", class: "btn btn-primaty" %>
-          <% end %>
-        </div>
-      <% end %>
       <p id="notice"><%= notice %></p>
       <%= yield %>
     </main>
+    
+    <%= render 'layouts/mobile_nav' %>
   </body>
 </html>

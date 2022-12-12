@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+@media screen and (min-width:544px) {
+  .bottom-nav {
+    display:none;
+  }
+}

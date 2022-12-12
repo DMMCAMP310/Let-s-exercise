@@ -37,12 +37,9 @@
             </th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td><%= @user.introduction %></td>
-          </tr>
-        </tbody>
       </table>
+      <%= @user.introduction %>
+      <%= render 'public/trainings/index', trainings: @trainings %>
     </div>
   </div>
 </div>
