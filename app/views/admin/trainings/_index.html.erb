@@ -1,22 +1,35 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th>トレーニング名</th>
-      <th>期待できる効果</th>
-      <th>達成目安</th>
-      <th>内容</th>
-      <th>食生活</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% trainings.each do |training| %>
-    <tr>
-      <td><%= training.name %></td>
-      <td><%= training.result %></td>
-      <td><%= training.goal %></td>
-      <td><%= training.introduction %></td>
-      <td><%= training.food %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container">
+  <% trainings.each do |training| %>
+  <div class='row'>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>トレーニング名</th>
+            <th>期待できる効果</th>
+            <th>達成目安</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= training.name %></td>
+            <td><%= training.result %></td>
+            <td><%= training.goal %></td>
+            <td>
+                <%= link_to "削除", admin_training_path(training), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger" %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="row">
+      <p class="font-weight-bold">内容<p><br>
+      <%= training.introduction %>
+    </div>
+    <div class="row">
+      <p class="font-weight-bold">食生活</p><br>
+      <%= training.food %>
+    </div>
+  <% end %>
+</div>

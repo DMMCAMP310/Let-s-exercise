@@ -16,7 +16,7 @@
         </thead>
         <tbody>
           <tr>
-            <td><%= image_tag @user.get_profile_image, size: '100x100' %></td>
+            <td><%= image_tag @user.get_profile_image, style: "border-radius: 50%; object-fit:cover;", size: '100x100' %></td>
             <td><%= @user.name %></td>
             <td><%= @user.email %></td>
             <td><%= @user.gender_i18n %></td>

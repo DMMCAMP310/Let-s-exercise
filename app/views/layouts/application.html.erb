@@ -8,15 +8,17 @@
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "application", :media => "all" %>
   </head>
 
   <body>
-    <%= render 'layouts/header' %>
+      <%= render 'layouts/header' %>
     <main>
       <p id="notice"><%= notice %></p>
       <%= yield %>
     </main>
-    
-    <%= render 'layouts/mobile_nav' %>
+    <div i="mobile_nav">
+      <%= render 'layouts/mobile_nav' %>
+    </div>
   </body>
 </html>
