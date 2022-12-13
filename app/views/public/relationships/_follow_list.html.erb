@@ -3,20 +3,24 @@
     <table class='table'>
       <thead>
         <tr>
-          <th>image</th>
-          <th>name</th>
-          <th></th>
-          <th></th>
-          <th></th>
+         <th>プロフィール画像</th>
+        <th>ニックネーム</th>
+        <th>性別</th>
+        <th>年齢</th>
+        <th>自己紹介</th>
+        <th></th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td><%= image_tag user.get_profile_image, size:'50x50' %></td>
-          <td><%= user.name %></td>
-          <td>フォロー数: <%= user.followings.count %></td>
-          <td>フォロワー数: <%= user.followers.count %></td>
-          <td><%= link_to 'Show', user_path(user.id) %></td>
+          <% if user.is_deleted != true %>
+            <td><%= image_tag user.get_profile_image, size: '100x100' %></td>
+            <td><%= link_to user.name, user_path(user.id) %></td>
+            <td><%= user.gender_i18n %></td>
+            <td><%= user.age %>歳</td>
+            <td><%= user.introduction %></td>
+            <td><%= link_to 'Show', user_path(user.id) %></td>
+          <% end %>
         </tr>
       </tbody>
     </table>

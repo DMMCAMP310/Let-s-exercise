@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+
+@media screen and (min-width:544px) {
+  .bottom-nav {
+    display:none;
+  }
+}
+
+.bg-header{
+    background-color: #FFF0F5;
+}
+
+body {
+  background-color: #EEEEEE;
+}

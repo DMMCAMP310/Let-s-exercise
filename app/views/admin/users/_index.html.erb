@@ -11,7 +11,7 @@
   <tbody>
     <% users.each do |user| %>
     <tr>
-      <td><%= image_tag user.get_profile_image, size: '100x100' %></td>
+      <td><%= image_tag user.get_profile_image, style: "border-radius: 50%; object-fit:cover;", size: '100x100' %></td>
       <td><%= link_to user.name, admin_user_path(user.id) %></td>
       <td><%= user.gender_i18n %></td>
       <td><%= user.age %>歳</td>

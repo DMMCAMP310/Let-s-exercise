@@ -39,7 +39,9 @@ class Public::TrainingsController < ApplicationController
   end
 
   def destroy
-
+    @training = Training.find(params[:id])
+    @trainig.destroy
+    redirect_to trainings_path
   end
 
   def likes
