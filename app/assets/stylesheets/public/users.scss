@@ -3,12 +3,19 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 
-td {
-  white-space: nowrap;
+.content-box {
+  display : block;
+  border : 1px solid black;
+  padding : 20px;
+  margin-bottom : 10px;
 }
 
 .follow-list {
   display: flex;
   justify-content: flex-end;
   align-items: center
+}
+
+.introduction {
+  padding : 15px 0;
 }

@@ -35,10 +35,10 @@ class Public::SessionsController < Devise::SessionsController
     return if !@user
     #取得したアカウントのパスワードが一致しているかを判別
     if @user.valid_password?(params[:user][:password]) && (@user.is_deleted == true)
-      flash[:notice] = "退会済みです。再度登録をお願いいたします。"
-      redirect_to new_user_registration_path
+      flash[:notice] = "規定違反があったためアカウントを停止しました。"
+      redirect_to root_path
     else
-      flash[:notice] = "項目を入力してください"
+      flash[:notice] = "メールアドレスまたはパスワードが一致しませんでした"
     end
   end
 end
