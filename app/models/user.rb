@@ -24,14 +24,14 @@ class User < ApplicationRecord
   end
   
   def follow(user_id)
-    relationships.create(followed_id: user_id)
+      relationships.create(followed_id: user_id)
   end
   def unfollow(user_id)
-    relationships.find_by(followed_id: user_id).destroy
+      relationships.find_by(followed_id: user_id).destroy
   end
   # フォローしているか判定
   def following?(user)
-    followings.include?(user)
+      followings.include?(user)
   end
   
   def self.looks(search, word)
