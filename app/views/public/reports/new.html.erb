@@ -1,0 +1,17 @@
+<div class="container">
+  <div class='row'>
+    <div class='mx-auto col-11 col-sm-10 col-lg-8 col-xl-6'>
+      <h3>通報</h3>
+      <%= render 'layouts/errors', obj: @report %>
+      <%= form_with model:[@user, @report] do |f| %>
+        <div class="form-group">
+          <%= f.label :内容, class: 'col-md-4' %>
+          <%= f.text_area :reason, class:"form-control", style: "height:8rem;" %>
+        </div>
+        <div class="actions">
+          <%= f.submit "通報する", class: "btn btn-danger" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

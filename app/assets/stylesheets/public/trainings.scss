@@ -9,6 +9,12 @@
   margin-bottom : 10px;
 }
 
+.nav-list {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center
+}
+
 ul {
   list-style : none;
 }

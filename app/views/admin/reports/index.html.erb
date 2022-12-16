@@ -1,0 +1,33 @@
+<div class="container">
+  <div class='row'>
+    <h3>通報一覧</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>通報ID</th>
+          <th>会員名</th>
+          <th>通報者</th>
+          <th>理由</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @reports.each do |report| %>
+          <tr>
+            <td>
+              <%= report.id %>
+            </td>
+            <td>
+              <%= report.reported.name %>
+            </td>
+            <td>
+              <%= link_to report.reporter.name, edit_admin_user_path(report.reporter.id) %>
+            </td>
+            <td>
+              <%= report.reason %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

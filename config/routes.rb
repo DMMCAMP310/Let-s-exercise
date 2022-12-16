@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
     resources :users, only: [:show, :edit, :index, :update, :destroy] do
+      resources :reports, only: [:new, :create]
       resource :relationships, only: [:create, :destroy]
       get 'follows' => 'relationships#followings', as: 'followings'
       get 'followers' => 'relationships#followers', as: 'followers'
@@ -37,5 +38,6 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users, only: [:index, :edit, :update]
     resources :trainings, only: [:index, :destroy]
+    resources :reports, only: [:index]
   end
 end

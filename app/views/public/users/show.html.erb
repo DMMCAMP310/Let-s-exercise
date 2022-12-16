@@ -10,6 +10,9 @@
     <div class="row">
       <%= @user.gender_i18n %>
       <%= @user.age %>歳
+      <% if @user != current_user %>
+        <%= link_to "通報", new_user_report_path(@user), class: "btn btn-danger btn-sm" %>
+      <% end %>
     </div>
     <div class="introduction">
       <%= simple_format(@user.introduction) %>
