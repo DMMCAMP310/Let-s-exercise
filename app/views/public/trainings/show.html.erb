@@ -1,15 +1,17 @@
 <div class="container">
   <h2>トレーニング情報</h2>
-  <div class="row">
+  <div class="d-flex align-items-center">
     <%= link_to user_path(@training.user.id) do %>
       <%= image_tag @training.user.get_profile_image, style: "border-radius: 50%; object-fit:cover;", size: '50x50' %>
     <% end %>
     <p class="font-weight-bold"><%= @training.user.name %></p>
   </div>
-  <% if @training.user == current_user %>
-    <%= link_to "編集", edit_training_path, class: "btn btn-sm btn-success" %>
-    <%= link_to "削除", training_path(@training), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger" %>
-  <% end %>
+  <div class="nav-list">
+    <% if @training.user == current_user %>
+      <%= link_to "編集", edit_training_path, class: "btn btn-sm btn-success" %>
+      <%= link_to "削除", training_path(@training), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger" %>
+    <% end %>
+  </div>
   <div class='row'>
     <p class="font-weight-bold">トレーニング名<p><br>
       <%= @training.name %>
