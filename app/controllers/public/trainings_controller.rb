@@ -5,7 +5,6 @@ class Public::TrainingsController < ApplicationController
 
   def index
     @trainings = Training.all
-    @training = Training.new
   end
 
   def create
@@ -39,7 +38,9 @@ class Public::TrainingsController < ApplicationController
   end
 
   def destroy
-
+    @training = Training.find(params[:id])
+    @training.destroy
+    redirect_to trainings_path
   end
 
   def likes

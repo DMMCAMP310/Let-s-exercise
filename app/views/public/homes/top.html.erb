@@ -1,15 +1,43 @@
-<div class="btn-wrapper col-10 mx-auto">
-  <h1>Let's Exercise</h1>
-  <P>
-    自分にあったオリジナルのトレーニングをつくろう
-  </P>
+<%= stylesheet_link_tag 'application', media: 'all' %>
+<div class="container">
   <div class="row">
-    <%= link_to 'ゲストログイン（閲覧用）', public_users_guest_sign_in_path, method: :post %>
+    <div class='mx-auto col-11 col-sm-10 col-lg-8 col-xl-6'>
+      <div class="btn-wrapper col-10 mx-auto">
+        <h1>MakeTrain</h1>
+        <P>
+          自分にあったオリジナルのトレーニングを作ろう、探そう
+        </P>
+        <div class="row">
+          <%= link_to 'ゲストログイン（閲覧用）', public_users_guest_sign_in_path, class: "btn btn-secondary btn-block mb-3", method: :post %>
+        </div>
+        <div class="row">
+          <%= link_to 'ログイン',new_user_session_path, class: "btn btn-light btn-block mb-3" %>
+        </div>
+        <div class="row">
+          <%= link_to '新規登録',new_user_registration_path, class: "btn btn-light btn-block mb-3" %>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="row">
-    <%= link_to 'Log in',new_user_session_path %>
+  <div class="about">
+    <p class="font-weight-bold">About Us<p><br>
+    <h2>MakeTrainについて</h2>
+    <p>
+      運動していたけど今は全然できていない。習慣にしたいが途中で止まってしまう。運動がしんどすぎて挫折してしまう。<br>
+      そんな方に自分が習慣にできる運動方法をユーザー同士で共有し最も自分に合う方法を作りだすことで続けられる運動方法を得てたくさんの人が健康で元気にしたいと思いこのサイトを作成しました。
+    </p>
+    
+    <h2>マナーと注意点</h2>
+    <ul>
+      <li>人を不快にさせる発言はやめましょう</li>
+        <p>
+          人を傷つけるコメントをされた場合や不適切だと判断した場合はアカウントの凍結などの対応をとります。
+        </p>
+      <li>人を不快にさせる画像はやめましょう</li>
+        <p>明らかなアダルト画像など不適切と判断した場合ははアカウントの凍結などの対応をとります。</p>
+    </ul>
+    
+    <p>よりよいコミュニティ活動ができるようにマナーを守って当サイトをご利用ください</p>
   </div>
-  <div class="row">
-    <%= link_to 'Sign Up',new_user_registration_path %>
-  </div>
+    
 </div>

@@ -1,26 +1,22 @@
 <div class="container">
   <h2>会員情報</h2>
-  <div class='row'>
-    <div>
-      <table class="table">
-        <thead>
-          <tr>
-            <th><%= image_tag @user.get_profile_image, size: '100x100' %><%= @user.name %></th>
-            <th><%= @user.gender_i18n %></th>
-            <th><%= @user.age %>歳</th>
-            <th>
-              <% if @user.name != "guestuser" %>
-                <%= link_to "編集", edit_user_path %>
-              <% end %>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><%= @user.introduction %></td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="row">
+      <%= image_tag @user.get_profile_image, style: "border-radius: 50%; object-fit:cover;", size: '100x100' %>
     </div>
-  </div>
+    <%= render 'information', user: @user %>
+    <div class="row">
+      <p class="font-weight-bold"><%= @user.name %></p>
+    </div>
+    <div class="row">
+      <%= @user.gender_i18n %>
+      <%= @user.age %>歳
+      <% if @user != current_user %>
+        <%= link_to "通報", new_user_report_path(@user), class: "btn btn-danger btn-sm" %>
+      <% end %>
+    </div>
+    <div class="introduction">
+      <%= simple_format(@user.introduction) %>
+    </div>
+      <%= render 'public/trainings/index', trainings: @trainings %>
+    <%= render 'layouts/form' %>
 </div>

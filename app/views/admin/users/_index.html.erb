@@ -1,22 +1,34 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th>プロフィール画像</th>
-      <th>ニックネーム</th>
-      <th>性別</th>
-      <th>年齢</th>
-      <th>自己紹介</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% users.each do |user| %>
-    <tr>
-      <td><%= image_tag user.get_profile_image, size: '100x100' %></td>
-      <td><%= link_to user.name, admin_user_path(user.id) %></td>
-      <td><%= user.gender_i18n %></td>
-      <td><%= user.age %>歳</td>
-      <td><%= user.introduction %></td>
-    </tr>
-    <% end %>
-  </tbody>
+<% users.each do |user| %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>プロフィール画像</th>
+        <th>ニックネーム</th>
+        <th>メールアドレス</th>
+        <th>性別</th>
+        <th>年齢</th>
+        <th>ユーザー情報</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= image_tag user.get_profile_image, style: "border-radius: 50%; object-fit:cover;", size: '100x100' %></td>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.gender_i18n %></td>
+        <td><%= user.age %>歳</td>
+        <td>
+          <% if user.is_deleted == false %>
+            <span class="text-success"><strong>有効</strong></span>
+          <% elsif %>
+            <span class="text-secondary"><strong>退会済</strong></span>
+          <% end %>
+        </td>
+        <td><%= link_to "編集", edit_admin_user_path(user.id) %></td>
+      </tr>
+    </thead>
   </table>
+  <div class="introduction">
+    <%= user.introduction %>
+  </div>
+<% end %>

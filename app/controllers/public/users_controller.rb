@@ -7,6 +7,7 @@ class Public::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @trainings = @user.trainings
   end
 
   def edit
@@ -26,10 +27,9 @@ class Public::UsersController < ApplicationController
     @user = current_user
   end
   
-  def withdrawal
+  def destroy
     @user = current_user
-    @user.update(is_deleted: true)
-    reset_session
+    @user.destroy
     flash[:notice] = "退会処理を実行いたしました"
     redirect_to root_path
   end

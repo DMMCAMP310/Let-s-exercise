@@ -11,7 +11,6 @@ class Public::SearchesController < ApplicationController
   end
   
   def index
-    
   end
   
 end

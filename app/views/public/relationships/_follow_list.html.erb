@@ -1,0 +1,28 @@
+<% if users.exists? %>
+  <% users.each do |user| %>
+    <% if user.is_deleted != true %>
+      <div class="content-box">
+      <%= link_to user_path(user.id),class: 'nav-link', style: "color:black;" do %>
+        <div class="row">
+          <%= image_tag user.get_profile_image, style: "border-radius: 50%; object-fit:cover;", size: '100x100' %>
+        </div>
+      <% end %>
+        <%= render 'public/users/information', user: user %>
+      <%= link_to user_path(user.id),class: 'nav-link', style: "color:black;" do %>
+        <div class="row">
+          <p class="font-weight-bold"><%= user.name %></p>
+        </div>
+        <div class="row">
+          <%= user.gender_i18n %>
+          <%= user.age %>歳
+        </div>
+        <div class="introduction">
+          <%= simple_format(user.introduction) %>
+        </div>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+<% else %>
+  <p>ユーザーはいません</p>
+<% end %>
