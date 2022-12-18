@@ -5,6 +5,8 @@ class Training < ApplicationRecord
   has_many :training_comments, dependent: :destroy
   
   validates :name, presence:true
+  validates :goal, presence:true
+  validates :introduction, presence:true
   
   def self.looks(search, word)
     if search != ""

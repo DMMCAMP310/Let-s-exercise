@@ -13,15 +13,13 @@ class Public::TrainingsController < ApplicationController
     if @training.save
       redirect_to training_path(@training), notice: 'トレーニングを作成しました'
     else
-      @trainings = Training.all
-      render 'index'
+      render 'new'
     end
   end
 
   def show
     @training = Training.find(params[:id])
     @training_comment = TrainingComment.new
-    @training_comments = TrainingComment.all
   end
 
   def edit
