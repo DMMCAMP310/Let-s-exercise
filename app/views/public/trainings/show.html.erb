@@ -12,18 +12,19 @@
       <%= link_to "削除", training_path(@training), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger" %>
     <% end %>
   </div>
-  <div class='row'>
-    <p class="font-weight-bold">トレーニング名<p><br>
-      <%= @training.name %>
-  </div>
-  <div class="row">
-    <p class="font-weight-bold">目標<p><br>
-    <%= @training.goal %>
-  </div>
-  <div class="row">
-    <p class="font-weight-bold">内容<p><br>
-    <%= @training.introduction %>
-  </div>
+  <ul>
+      <li class="font-weight-bold">トレーニング名</li>
+      <li><%= @training.name %></li>
+    </ul>
+    <ul>
+      <li class="font-weight-bold">目標</li>
+      <li><%= @training.goal %></li>
+    </ul>
+    <ul>
+      <li class="font-weight-bold">内容</li>
+      <li><%= @training.introduction %></li>
+    </ul>
+    <ul>
   <div id="like_btn_<%= @training.id %>">
     <%= render 'public/likes/like', training: @training %>
   </div>

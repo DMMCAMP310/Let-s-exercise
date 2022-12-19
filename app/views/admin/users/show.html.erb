@@ -1,0 +1,22 @@
+<div class="container">
+  <h2>会員情報</h2>
+    <div class="row">
+      <%= image_tag @user.get_profile_image, style: "border-radius: 50%; object-fit:cover;", size: '100x100' %>
+    </div>
+    <div class="row">
+      <p class="font-weight-bold"><%= @user.name %></p>
+    </div>
+    <div class="row">
+      <%= @user.email %>
+    </div>
+    <div class="row">
+      <%= @user.gender_i18n %>
+      <%= @user.age %>歳
+      <%= link_to edit_admin_user_path(@user.id) do %>
+        <i class="fas fa-exclamation-triangle"></i>
+      <% end %>
+    </div>
+    <div class="introduction">
+      <%= simple_format(@user.introduction) %>
+    </div>
+</div>

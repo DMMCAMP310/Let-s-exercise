@@ -20,7 +20,7 @@
               <%= report.reported.name %>
             </td>
             <td>
-              <%= link_to report.reporter.name, edit_admin_user_path(report.reporter.id) %>
+              <%= link_to report.reporter.name, admin_user_path(report.reporter.id) %>
             </td>
             <td>
               <%= report.reason %>

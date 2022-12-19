@@ -20,6 +20,7 @@
 
 body {
   background-color: #EEEEEE;
+  word-break: break-all;
 }
 
 #back {

@@ -5,10 +5,10 @@
       <p class="font-weight-bold"><%= training_comment.user.name %></p>
     <% end %>
   </div>
-  <!--作成日時からの経過時間を表示する-->
-  <%= time_ago_in_words(training_comment.created_at) %>前<br>
   <%= training_comment.comment %><br>
+  <!--作成日時からの経過時間を表示する-->
+  <%= time_ago_in_words(training_comment.created_at) %>前
   <% if training_comment.user == current_user %>
-    <%= link_to "削除する", training_training_comment_path(training_comment.training, training_comment), method: :delete, remote: true, class:"btn btn-danger" %>
+    <%= link_to "削除する", training_training_comment_path(training_comment.training, training_comment), method: :delete, remote: true, class:"btn btn-danger btn-sm" %>
   <% end %>
 <% end %>
