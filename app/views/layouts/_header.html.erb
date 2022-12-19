@@ -39,17 +39,7 @@
           <% end %>
           </ul>
         </div>
-
-        <% if user_signed_in? %>
-        <div class="d-flex flex-row-reverse mt-2">
-          <%= form_with url: search_path, local: true, method: :get do |f| %>
-            <%= f.text_field :word %>
-            <%= f.select :range, options_for_select([['User'], ['Training']]) %>
-            <%= f.submit "検索", class: "btn btn-primaty" %>
-          <% end %>
-        </div>
-        <% end %>
-      </div>
+        <%= render 'public/searches/search' %>
 
     </div>
   </nav>

@@ -14,14 +14,8 @@
  *= require_self
  */
 
-@media screen and (min-width:544px) {
-  .bottom-nav {
-    display:none;
-  }
-}
-
 .bg-header{
-    background-color: #FFF0F5;
+  background-color: #267594;
 }
 
 body {
@@ -33,3 +27,4 @@ body {
   right: 20px;
   bottom: 50px;
 }
+

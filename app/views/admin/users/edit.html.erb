@@ -10,10 +10,10 @@
           <%= f.radio_button :is_deleted, 'false' %>
           <%= f.label :is_deleted, '有効' %>
           <%= f.radio_button :is_deleted, 'true' %>
-          <%= f.label :is_deleted, '退会' %>
+          <%= f.label :is_deleted, '凍結' %>
         </div>
         <div class="form-group">
-          <%= f.submit class: 'btn btn-secondary' %>
+          <%= f.submit "アップロード",class: 'btn btn-secondary' %>
         </div>
       <% end %>
     </div>

@@ -17,20 +17,12 @@
       <%= @training.name %>
   </div>
   <div class="row">
-    <p class="font-weight-bold">達成期間<p><br>
+    <p class="font-weight-bold">目標<p><br>
     <%= @training.goal %>
-  </div>
-  <div class="row">
-    <p class="font-weight-bold">期待できる効果<p><br>
-    <%= @training.result %>
   </div>
   <div class="row">
     <p class="font-weight-bold">内容<p><br>
     <%= @training.introduction %>
-  </div>
-  <div class="row">
-    <p class="font-weight-bold">食生活</p><br>
-    <%= @training.food %>
   </div>
   <div id="like_btn_<%= @training.id %>">
     <%= render 'public/likes/like', training: @training %>

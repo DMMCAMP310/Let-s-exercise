@@ -1,25 +1,17 @@
-<%= form_with model:training, local:true do |f| %>
+<%= form_with model: training, local:true do |f| %>
   <div class="field row mb-3">
     <%= f.label :トレーニング名, class: 'col-md-4' %>
     <%= f.text_field :name %>
   </div>
   <div class="field row mb-3">
-    <%= f.label :期待される効果, class: 'col-md-4' %>
-    <%= f.text_field :result %>
-  </div>
-  <div class="field row mb-3">
-    <%= f.label :達成目安, class: 'col-md-4' %>
+    <%= f.label :目標, class: 'col-md-4' %>
     <%= f.text_field :goal %>
   </div>
   <div class="form-group">
     <%= f.label :内容, class: 'col-md-4' %>
     <%= f.text_area :introduction, class: "form-control introduction", style: "height:8rem;" %>
   </div>
-  <div class="form-group">
-    <%= f.label :食生活, class: 'col-md-4' %>
-    <%= f.text_area :food, class: "form-control food", style: "height:8rem;" %>
-  </div>
   <div class="actions">
-    <%= f.submit class: 'btn btn-secondary' %>
+    <%= f.submit 'アップロードする', class: 'btn btn-outline-success' %>
   </div>
 <% end %>
