@@ -1,10 +1,11 @@
 <div class="container">
-    <h2>検索結果</h2>
-
-    <!--検索対象モデルがUserの時 -->
-      <% if @range == "User" %>
-       　<%= render 'public/users/index', users: @users %>
-      <% else %>
-    <!--検索対象モデルがUserではない時(= 検索対象モデルがBookの時) -->
-        <%= render 'public/trainings/index', trainings: @trainings %>
-      <% end %>
+  <h2>検索結果</h2>
+  <!--検索対象モデルがUserの時 -->
+    <% if @range == "User" %>
+     　<%= render 'public/users/index', users: @users %>
+    <% else %>
+  <!--検索対象モデルがUserではない時(= 検索対象モデルがBookの時) -->
+      <%= render 'public/trainings/index', trainings: @trainings %>
+    <% end %>
+    <%= render 'layouts/form' %>
+</div>

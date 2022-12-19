@@ -6,10 +6,10 @@
     フォロワー<%= user.followers.count %>
   <% end %>
   <% if current_user == user %>
-    <% if user.name != "guestuser" %>
+    <% if user.name != "ゲストユーザー" %>
       <button class= 'btn btn-light btn-sm'>
-        <%= link_to edit_user_path(current_user.id) do %>
-          <i class="fas fa-user-cog"></i>
+        <%= link_to edit_user_path(current_user.id), style: "color:gray;" do %>
+          <i class="fas fa-user-cog fa-lg"></i>
         <% end %>
       </button>
     <% end %>
@@ -20,7 +20,7 @@
       </button><br>
       <% if current_user != user && current_user.following?(user) && user.following?(current_user) %>
         <%= link_to  chat_path(user.id), class: "ml-3", style: "color:black;" do %>
-          <i class="far fa-envelope"></i>
+          <i class="far fa-envelope fa-lg"></i>
         <% end %>
       <% end %>
     <% else %>

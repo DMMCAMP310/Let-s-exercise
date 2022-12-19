@@ -5,7 +5,7 @@
   <% end %>
 <% else %>
   <%= link_to training_likes_path(training), method: :post, remote: true do %>
-    <i class="fas fa-heart" aria-hidden="true"></i>
+    <i class="fas fa-heart" aria-hidden="true" style="color: silver;"></i>
     <%= training.likes.count %>いいね
   <% end %>
 <% end %>

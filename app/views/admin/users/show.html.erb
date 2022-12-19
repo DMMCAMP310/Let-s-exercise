@@ -7,13 +7,13 @@
       <p class="font-weight-bold"><%= @user.name %></p>
     </div>
     <div class="row">
-      <%= @user.email %>
+      <p class="font-weight-bold"><%= @user.email %></p>
     </div>
     <div class="row">
       <%= @user.gender_i18n %>
       <%= @user.age %>歳
-      <%= link_to edit_admin_user_path(@user.id) do %>
-        <i class="fas fa-exclamation-triangle"></i>
+      <%= link_to edit_admin_user_path(@user.id),class: 'nav-link', style: "color:gray;" do %>
+        <i class="fas fa-exclamation-triangle fa-lg"></i>
       <% end %>
     </div>
     <div class="introduction">

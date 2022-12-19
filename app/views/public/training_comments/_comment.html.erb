@@ -1,4 +1,5 @@
 <% training.training_comments.each do |training_comment| %>
+<div class="border-bottom">
   <div class="d-flex align-items-center">
     <%= link_to user_path(training.user.id),class: 'nav-link', style: "color:black;" do %>
       <%= image_tag training.user.get_profile_image, style: "border-radius: 50%; object-fit:cover;", size: '50x50' %>
@@ -9,6 +10,9 @@
   <!--作成日時からの経過時間を表示する-->
   <%= time_ago_in_words(training_comment.created_at) %>前
   <% if training_comment.user == current_user %>
-    <%= link_to "削除する", training_training_comment_path(training_comment.training, training_comment), method: :delete, remote: true, class:"btn btn-danger btn-sm" %>
+    <%= link_to training_training_comment_path(training_comment.training, training_comment), method: :delete, remote: true, style: "color:gray;" do %>
+      <i class="fas fa-trash-alt"></i>
+    <% end %>
   <% end %>
+  </div>
 <% end %>
