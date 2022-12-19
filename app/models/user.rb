@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-         
+
   has_many :trainings, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :liked_trainings, through: :likes, source: :training
@@ -16,17 +16,17 @@ class User < ApplicationRecord
   has_many :reverse_of_reports, class_name: "Report", foreign_key: "reported_id", dependent: :destroy
   has_many :members, dependent: :destroy
   has_many :chats, dependent: :destroy
-  
+
   has_one_attached :profile_image
   enum gender: { man:false, woman:true }
   enum generation: { Z:0, Y:1, X:2 }
   validates :name, presence:true
   validates :introduction, presence:true
-  
+
   def get_profile_image
     (profile_image.attached?) ? profile_image : 'no_image.jpg'
   end
-  
+
   def follow(user_id)
       relationships.create(followed_id: user_id)
   end
@@ -37,7 +37,7 @@ class User < ApplicationRecord
   def following?(user)
       followings.include?(user)
   end
-  
+
   def self.looks(search, word)
     if search != ""
       User.where(["name LIKE?", "%#{word}%"])
@@ -46,14 +46,14 @@ class User < ApplicationRecord
       User.all
     end
   end
-  
+
   def self.guest
-    find_or_create_by!(name: 'guestuser' ,email: 'guest@example.com', gender: 'man', age: '20', introduction: 'お試し') do |user|
+    find_or_create_by!(name: 'ゲストユーザー' ,email: 'guest@example.com', gender: 'man', age: '20', introduction: 'お試し') do |user|
       user.password = SecureRandom.urlsafe_base64
-      user.name = "guestuser"
+      user.name = "ゲストユーザー"
     end
   end
-  
+
   #ログイン時に退会済みのユーザーが同じアカウントでログイン出来ないよう制約を設けています
   def active_for_authentication?
     super && (is_deleted == false)
