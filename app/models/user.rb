@@ -16,7 +16,6 @@ class User < ApplicationRecord
   has_many :reverse_of_reports, class_name: "Report", foreign_key: "reported_id", dependent: :destroy
   has_many :members, dependent: :destroy
   has_many :chats, dependent: :destroy
-  has_many :rooms, through: :members
   
   has_one_attached :profile_image
   enum gender: { man:false, woman:true }

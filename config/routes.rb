@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :public do
+    get 'rooms/show'
+  end
   devise_for :users, controllers: {
     registrations: 'public/registrations',
     sessions: 'public/sessions',
