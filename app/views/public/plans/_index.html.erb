@@ -1,0 +1,14 @@
+<div class="content-box">
+  <table class="table">
+    <tbody>
+      <% plans.each do |plan| %>
+        <tr>
+          <td><%= plan.id %></td>
+          <td><%= plan.title %></td>
+          <td colspan="10"></td>
+          <td><%= link_to '編集', edit_plan_path(plan.id), class: "btn btn-success" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
