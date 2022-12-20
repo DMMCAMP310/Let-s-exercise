@@ -1,18 +1,18 @@
 <% training.training_comments.each do |training_comment| %>
 <div class="border-bottom">
   <div class="d-flex align-items-center">
-    <%= link_to user_path(training.user.id),class: 'nav-link', style: "color:black;" do %>
+    <%= link_to user_path(training.user.id), style: "color:black;" do %>
       <%= image_tag training.user.get_profile_image, style: "border-radius: 50%; object-fit:cover;", size: '50x50' %>
       <p class="font-weight-bold"><%= training_comment.user.name %></p>
     <% end %>
   </div>
-  <%= training_comment.comment %><br>
-  <!--作成日時からの経過時間を表示する-->
-  <%= time_ago_in_words(training_comment.created_at) %>前
+  <%= simple_format(training_comment.comment)%><br>
   <% if training_comment.user == current_user %>
     <%= link_to training_training_comment_path(training_comment.training, training_comment), method: :delete, remote: true, style: "color:gray;" do %>
       <i class="fas fa-trash-alt"></i>
     <% end %>
   <% end %>
-  </div>
+  <!--作成日時からの経過時間を表示する-->
+  <%= time_ago_in_words(training_comment.created_at) %>前
+</div>
 <% end %>

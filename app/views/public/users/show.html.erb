@@ -1,5 +1,6 @@
 <div class="container">
   <h2>会員情報</h2>
+  <div class="user-info">
     <div class="row">
       <%= image_tag @user.get_profile_image, style: "border-radius: 50%; object-fit:cover;", size: '100x100' %>
     </div>
@@ -19,6 +20,7 @@
     <div class="introduction">
       <%= simple_format(@user.introduction) %>
     </div>
-      <%= render 'public/trainings/index', trainings: @trainings %>
-    <%= render 'layouts/form' %>
+  </div>
+  <%= render 'public/trainings/index', trainings: @trainings %>
+  <%= render 'layouts/form' %>
 </div>

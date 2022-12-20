@@ -1,11 +1,11 @@
 <% if training.liked_by?(current_user) %>
-  <%= link_to training_likes_path(training), method: :delete, remote: true do %>
+  <%= link_to training_likes_path(training), style: "color:black;", method: :delete, remote: true do %>
     <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
-    <%= training.likes.count %>いいね
+    <%= training.likes.count %>
   <% end %>
 <% else %>
   <%= link_to training_likes_path(training), method: :post, remote: true do %>
     <i class="fas fa-heart" aria-hidden="true" style="color: silver;"></i>
-    <%= training.likes.count %>いいね
+    <%= training.likes.count %>
   <% end %>
 <% end %>

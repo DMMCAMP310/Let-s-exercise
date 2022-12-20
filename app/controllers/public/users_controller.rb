@@ -22,11 +22,11 @@ class Public::UsersController < ApplicationController
       render 'edit'
     end
   end
-  
+
   def unsubscribe
     @user = current_user
   end
-  
+
   def destroy
     @user = current_user
     @user.destroy
@@ -37,7 +37,7 @@ class Public::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :age, :introduction)
+    params.require(:user).permit(:name, :age, :introduction, :profile_image)
   end
 
   def ensure_correct_user

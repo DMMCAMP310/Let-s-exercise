@@ -19,7 +19,7 @@
     </ul>
     <ul>
       <li class="font-weight-bold">内容</li>
-      <li><%= training.introduction %></li>
+      <li><%= simple_format(training.introduction) %></li>
     </ul>
     <ul>
       <li id="like_btn_<%= training.id %>">
@@ -28,8 +28,9 @@
       <li>
         <i class="far fa-comment"></i><%= training.training_comments.count %>
       </li>
+      <li><%= training.created_at.strftime('%Y/%m/%d') %></li>
     </ul>
     <% end %>
   </div>
-  <% end %>
+<% end %>
 

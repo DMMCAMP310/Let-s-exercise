@@ -4,8 +4,8 @@ class Training < ApplicationRecord
   has_many :liked_users, through: :likes, source: :user
   has_many :training_comments, dependent: :destroy
   
-  validates :name, presence:true
-  validates :goal, presence:true
+  validates :name, presence:true, length: {maximum: 20 }
+  validates :goal, presence:true, length: {maximum: 20 }
   validates :introduction, presence:true
   
   def self.looks(search, word)

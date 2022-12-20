@@ -1,7 +1,7 @@
 <div class="chatroom">
   <h2><%= @user.name %>さんとのチャット</h2>
 
-  <table class="message table", style: "width: 400px;">
+  <table class="table">
     <thead>
       <tr>
         <th style="text-align: left; font-size: 20px;"><%= current_user.name %></th>
@@ -18,7 +18,6 @@
               <%= time_ago_in_words(chat.created_at) %>前
             </p>
           </td>
-          <td></td>
         </tr>
       <% else %>
         <tr>
@@ -38,7 +37,7 @@
     <%= render "layouts/errors", obj: @chat %>
   </div>
   <%= form_with model: @chat, data: {remote: true} do |f| %>
-    <%= f.text_field :message %>
+    <%= f.text_area :message, :size=>"70" %>
     <%= f.hidden_field :room_id %>
     <%= f.submit "SEND", class:"btn btn-sm btn-success chat-btn" %>
   <% end %>
