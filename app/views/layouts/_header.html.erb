@@ -21,6 +21,7 @@
             <li class="text-center mx-2"><%= link_to "会員一覧", users_path,class: 'nav-link text-dark border rounded rounded-3 bg-white' %></li>
             <li class="text-center mx-2"><%= link_to "トレーニング一覧", trainings_path,class: 'nav-link text-dark border rounded rounded-3 bg-white' %></li>
             <li class="text-center mx-2"><%= link_to "いいね一覧", likes_trainings_path,class: 'nav-link text-dark border rounded rounded-3 bg-white' %></li>
+            <li class="text-center mx-2"><%= link_to "プラン一覧", plans_path,class: 'nav-link text-dark border rounded rounded-3 bg-white' %></li>
             <li class="text-center mx-2"><%= link_to 'ログアウト', destroy_user_session_path,method: :delete,class: 'nav-link text-dark border rounded rounded-3 bg-white' %></li>
 
           <% elsif admin_signed_in? %>
