@@ -1,6 +1,6 @@
-class CreatePlans < ActiveRecord::Migration[6.1]
+class CreateCauses < ActiveRecord::Migration[6.1]
   def change
-    create_table :plans do |t|
+    create_table :causes do |t|
       t.string :title
       t.integer :user_id, null: false
 

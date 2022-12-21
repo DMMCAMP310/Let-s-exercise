@@ -36,6 +36,9 @@ Rails.application.routes.draw do
     end
     resources :chats, only: [:show, :create]
     resources :plans, only: [:index, :create, :edit, :update]
+    resources :merits, only: [:index, :create, :edit, :update]
+    resources :causes, only: [:index, :create, :edit, :update]
+    resources :enables, only: [:index, :create, :update, :destroy]
     get 'search' => 'searches#search'
   end
   

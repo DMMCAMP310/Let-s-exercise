@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_20_155848) do
+ActiveRecord::Schema.define(version: 2022_12_21_105047) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -52,6 +52,13 @@ ActiveRecord::Schema.define(version: 2022_12_20_155848) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "causes", force: :cascade do |t|
+    t.string "title"
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "chats", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "room_id", null: false
@@ -60,6 +67,14 @@ ActiveRecord::Schema.define(version: 2022_12_20_155848) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["room_id"], name: "index_chats_on_room_id"
     t.index ["user_id"], name: "index_chats_on_user_id"
+  end
+
+  create_table "enables", force: :cascade do |t|
+    t.boolean "check_box", default: false, null: false
+    t.integer "plan_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "likes", force: :cascade do |t|
@@ -76,8 +91,16 @@ ActiveRecord::Schema.define(version: 2022_12_20_155848) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "merits", force: :cascade do |t|
+    t.string "title"
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "plans", force: :cascade do |t|
     t.string "title"
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -136,8 +159,25 @@ ActiveRecord::Schema.define(version: 2022_12_20_155848) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "week_enables", force: :cascade do |t|
+    t.integer "enable_id", null: false
+    t.integer "week_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["enable_id"], name: "index_week_enables_on_enable_id"
+    t.index ["week_id"], name: "index_week_enables_on_week_id"
+  end
+
+  create_table "weeks", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "chats", "rooms"
   add_foreign_key "chats", "users"
+  add_foreign_key "week_enables", "enables"
+  add_foreign_key "week_enables", "weeks"
 end

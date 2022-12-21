@@ -1,0 +1,14 @@
+<div class="content-box">
+  <table class="table">
+    <tbody>
+      <% causes.each do |cause| %>
+        <tr>
+          <td><%= cause.id %></td>
+          <td><%= cause.title %></td>
+          <td colspan="10"></td>
+          <td><%= link_to '編集', edit_cause_path(cause.id), class: "btn btn-success" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
