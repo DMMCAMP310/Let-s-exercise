@@ -2,12 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+.user-info {
+  padding : 20px;
+}
 
 .content-box {
   display : block;
   border : 1px solid black;
   padding : 20px;
   margin-bottom : 10px;
+  background-color : #FFFFFF;
 }
 
 .follow-list {

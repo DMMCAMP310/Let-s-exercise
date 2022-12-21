@@ -19,7 +19,7 @@
 }
 
 body {
-  background-color: #EEEEEE;
+  background-image: url("background");
   word-break: break-all;
 }
 
@@ -29,3 +29,15 @@ body {
   bottom: 50px;
 }
 
+.rounded-circle {
+  text-align:center;
+  line-height: 10px;
+  border: 0px none;
+  color: #FFFFFF;
+  background-color: #FF6928;
+  background-size: cover;
+}
+
+table {
+  white-space: nowrap;
+}

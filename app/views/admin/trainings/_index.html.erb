@@ -1,13 +1,17 @@
 <% trainings.each do |training| %>
   <div class="content-box">
+    <%= link_to admin_user_path(training.id),class: 'nav-link', style: "color:black;" do %>
     <div class="d-flex align-items-center">
         <%= image_tag training.user.get_profile_image, style: "border-radius: 50%; object-fit:cover;", size: '50x50' %>
       <p class="font-weight-bold">
-      <%= training.user.name %>
+      <%= training.user.name%>
       </p>
-      <%= link_to "削除", admin_training_path(training), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger" %>
-      <%= link_to edit_admin_user_path(training.user.id) do %>
-        <i class="fas fa-exclamation-triangle"></i>
+    <% end %>
+      <%= link_to admin_training_path(training), method: :delete, data: { confirm: '本当に消しますか？' },class: 'nav-link', style: "color:gray;" do %>
+        <i class="fas fa-trash-alt fa-lg"></i>
+      <% end %>
+      <%= link_to edit_admin_user_path(training.user.id),class: 'nav-link', style: "color:gray;" do %>
+        <i class="fas fa-exclamation-triangle fa-lg"></i>
       <% end %>
     </div>
     <ul>
@@ -22,6 +26,5 @@
       <li class="font-weight-bold">内容</li>
       <li><%= training.introduction %></li>
     </ul>
-    
   </div>
   <% end %>

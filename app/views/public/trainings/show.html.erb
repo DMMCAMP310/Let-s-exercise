@@ -1,18 +1,23 @@
 <div class="container">
   <h2>トレーニング情報</h2>
-  <div class="d-flex align-items-center">
-    <%= link_to user_path(@training.user.id) do %>
-      <%= image_tag @training.user.get_profile_image, style: "border-radius: 50%; object-fit:cover;", size: '50x50' %>
-    <% end %>
-    <p class="font-weight-bold"><%= @training.user.name %></p>
-  </div>
-  <div class="nav-list">
-    <% if @training.user == current_user %>
-      <%= link_to "編集", edit_training_path, class: "btn btn-sm btn-success" %>
-      <%= link_to "削除", training_path(@training), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger" %>
-    <% end %>
-  </div>
-  <ul>
+  <div class="content-box">
+    <div class="d-flex align-items-center">
+      <%= link_to user_path(@training.user.id) do %>
+        <%= image_tag @training.user.get_profile_image, style: "border-radius: 50%; object-fit:cover;", size: '50x50' %>
+      <% end %>
+      <p class="font-weight-bold"><%= @training.user.name %></p>
+    </div>
+    <div class="nav-list">
+      <% if @training.user == current_user %>
+        <%= link_to edit_training_path,class: 'nav-link', style: "color:gray;" do %>
+          <i class="fas fa-cog fa-lg"></i>
+        <% end %>
+        <%= link_to training_path(@training), method: :delete, data: { confirm: '本当に消しますか？' },class: 'nav-link', style: "color:gray;" do %>
+          <i class="fas fa-trash-alt fa-lg"></i>
+        <% end %>
+      <% end %>
+    </div>
+    <ul>
       <li class="font-weight-bold">トレーニング名</li>
       <li><%= @training.name %></li>
     </ul>
@@ -22,13 +27,16 @@
     </ul>
     <ul>
       <li class="font-weight-bold">内容</li>
-      <li><%= @training.introduction %></li>
+      <li><%= simple_format(@training.introduction) %></li>
     </ul>
-    <ul>
-  <div id="like_btn_<%= @training.id %>">
-    <%= render 'public/likes/like', training: @training %>
+    <%= @training.created_at.strftime('%Y/%m/%d') %>
+    <div id="like_btn_<%= @training.id %>">
+      <%= render 'public/likes/like', training: @training %>
+    </div>
   </div>
-  <p>コメント件数<%= @training.training_comments.count %></p>
-  <div id="comments-area"><%= render "public/training_comments/comment", training: @training %></div>
-  <div id="comments-area"><%= render "public/training_comments/commentform", training: @training, training_comment: @training_comment %></div>
+  <div class="comment-box">
+    <h5><%= @training.training_comments.count %>件のコメント</h5>
+    <div id="comments-area"><%= render "public/training_comments/comment", training: @training %></div>
+    <div id="commentform-area"><%= render "public/training_comments/commentform", training: @training, training_comment: @training_comment %></div>
+  </div>
 </div>

@@ -1,5 +1,5 @@
 class Chat < ApplicationRecord
   belongs_to :user
   belongs_to :room
-  validates :message, length: {maximum: 50 }
+  validates :message, presence:true, length: {maximum: 20 }
 end

@@ -23,8 +23,7 @@ class User < ApplicationRecord
 
   has_one_attached :profile_image
   enum gender: { man:false, woman:true }
-  enum generation: { Z:0, Y:1, X:2 }
-  validates :name, presence:true
+  validates :name, presence:true, length: {maximum: 10 }
   validates :introduction, presence:true
 
   def get_profile_image

@@ -1,5 +1,6 @@
 <div class="container">
   <h2>会員情報</h2>
+  <div class="user-info">
     <div class="row">
       <%= image_tag @user.get_profile_image, style: "border-radius: 50%; object-fit:cover;", size: '100x100' %>
     </div>
@@ -11,12 +12,15 @@
       <%= @user.gender_i18n %>
       <%= @user.age %>歳
       <% if @user != current_user %>
-        <%= link_to "通報", new_user_report_path(@user), class: "btn btn-danger btn-sm" %>
+        <%= link_to  new_user_report_path(@user), style: "color:black;" do %>
+          <i class="fas fa-exclamation-triangle fa-lg"></i>
+        <% end %>
       <% end %>
     </div>
     <div class="introduction">
       <%= simple_format(@user.introduction) %>
     </div>
-      <%= render 'public/trainings/index', trainings: @trainings %>
-    <%= render 'layouts/form' %>
+  </div>
+  <%= render 'public/trainings/index', trainings: @trainings %>
+  <%= render 'layouts/form' %>
 </div>
