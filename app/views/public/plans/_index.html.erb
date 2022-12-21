@@ -7,6 +7,12 @@
           <td><%= plan.title %></td>
           <td colspan="10"></td>
           <td><%= link_to '編集', edit_plan_path(plan.id), class: "btn btn-success" %></td>
+          <td>
+            <%= form_with model: enable, url: enables_path, method: :post do |f| %>
+              <%= f.hidden_field :plan_id, :value => plan.id %>
+              <%= f.submit '実施', class: "btn btn-info" %>
+            <% end %>
+          </td>
         </tr>
       <% end %>
     </tbody>

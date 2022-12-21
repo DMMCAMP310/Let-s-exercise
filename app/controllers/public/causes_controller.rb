@@ -1,11 +1,12 @@
 class Public::CausesController < ApplicationController
   def index
-    @causes = Cause.all
+    @causes = current_user.causes.all
     @cause = Cause.new
   end
   
   def create
     @cause = Cause.new(cause_params)
+    @cause.user_id = current_user.id
     if @cause.save
       redirect_to causes_path
     else

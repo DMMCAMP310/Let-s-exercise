@@ -1,11 +1,12 @@
 class Public::MeritsController < ApplicationController
   def index
-    @merits = Merit.all
+    @merits = current_user.merits.all
     @merit = Merit.new
   end
   
   def create
     @merit = Merit.new(merit_params)
+    @merit.user_id = current_user.id
     if @merit.save
       redirect_to merits_path
     else

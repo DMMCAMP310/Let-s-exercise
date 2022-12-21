@@ -1,0 +1,20 @@
+<div class="content-box">
+  <table class="table">
+    <tbody>
+      <% enables.each do |enable| %>
+        <tr>
+          <td><%= enable.plan.id %></td>
+          <td>
+            <%= enable.plan.title %><br>
+            <%= form_with model: enable, url: enable_path(enable), local:true, method: :post  do |f| %>
+              <%= collection_check_boxes(:enable, :week_ids, Week.all, :id, :name) do |b| %>
+                <%= b.label { b.check_box + b.text } %>
+              <% end %>
+            <% end %>
+          </td>
+          <td colspan="15"></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

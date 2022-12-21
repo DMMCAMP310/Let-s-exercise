@@ -7,3 +7,18 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Admin.create(email:"admin@example.jp",password:"123456")
+
+weeks = [
+  "月",
+  "火",
+  "水",
+  "木",
+  "金",
+  "土",
+  "日",]
+
+weeks.length.times do |i|
+  Week.create!(
+    name: weeks[i]
+  )
+end
