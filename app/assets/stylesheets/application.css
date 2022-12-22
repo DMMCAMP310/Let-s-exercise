@@ -29,12 +29,18 @@ main {
 }
 
 .sidebar_nav {
-  width: 230px;
+  display: flex;
 }
 
 #back {
   position: fixed;
-  right: 20px;
+  right: 30px;
+  bottom: 50px;
+}
+
+#side {
+  position: fixed;
+  right: 170px;
   bottom: 50px;
 }
 
@@ -51,7 +57,7 @@ table {
 }
 
 @media (max-width: 767px) {
-  /* 767px以下の場合、スライドバーを消す */
+  /* 767px以下の場合、サイドバーを消す */
   .sidebar_nav{
     display: none;
   }

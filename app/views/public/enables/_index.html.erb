@@ -1,6 +1,14 @@
 <div class="content-box">
   <table class="table">
     <tbody>
+      <tr>
+        <td>
+          <p>
+            全体達成<%= select_tag 'name', options_for_select((0..100).to_a), include_blank: true %>%
+            90%達成でレベルアップ　60%以上達成で継続　60%以下でレベルダウン、見直し
+          </p>
+        </td>
+      </tr>
       <% enables.each do |enable| %>
         <tr>
           <td><%= enable.plan.id %></td>
@@ -12,7 +20,8 @@
               <% end %>
             <% end %>
           </td>
-          <td colspan="15"></td>
+          <td colspan="4"></td>
+          <td>達成<%= select_tag 'name', options_for_select((0..100).to_a), include_blank: true %>%</td>
         </tr>
       <% end %>
     </tbody>

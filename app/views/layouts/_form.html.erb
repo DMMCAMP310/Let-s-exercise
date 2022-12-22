@@ -1,8 +1,10 @@
 <span id="back">
-  <%= link_to new_training_path, data: {"turbolinks"=>false}, class: "nav-link" do %>
-    <button class="rounded-circle p-0" style="width:7rem;height:7rem;background-color: #FF6928;">
-      <i class="far fa-sticky-note fa-4x"></i>
-      <p class="font-weight-bold">新規作成</p>
-    </button>
+  <% if user_signed_in? %>
+    <%= link_to new_training_path, data: {"turbolinks"=>false}, class: "nav-link" do %>
+      <button class="rounded-circle p-0" style="width:8rem;height:8rem;background-color: #FF6928;">
+        <i class="far fa-sticky-note fa-4x"></i>
+        <p class="font-weight-bold">新規作成</p>
+      </button>
+    <% end %>
   <% end %>
 </span>
