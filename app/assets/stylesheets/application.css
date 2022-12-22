@@ -23,6 +23,15 @@ body {
   word-break: break-all;
 }
 
+main {
+  display: flex;
+  overflow-y: scroll;
+}
+
+.sidebar_nav {
+  width: 230px;
+}
+
 #back {
   position: fixed;
   right: 20px;
@@ -34,10 +43,16 @@ body {
   line-height: 10px;
   border: 0px none;
   color: #FFFFFF;
-  background-color: #FF6928;
   background-size: cover;
 }
 
 table {
   white-space: nowrap;
+}
+
+@media (max-width: 767px) {
+  /* 767px以下の場合、スライドバーを消す */
+  .sidebar_nav{
+    display: none;
+  }
 }

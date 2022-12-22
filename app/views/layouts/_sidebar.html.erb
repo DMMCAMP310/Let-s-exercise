@@ -1,20 +1,22 @@
-<nav class="sidebar__nav">
+<nav class="sidebar_nav">
   <% if user_signed_in? %>
-  <ul class="navbar-nav">
-    <li><%= link_to "マイページ", user_path(current_user.id) %></li>
-    <li><%= link_to "会員一覧", users_path %></li>
-    <li><%= link_to "トレーニング一覧", trainings_path %></li>
-    <li><%= link_to "トレーニング作成", new_training_path %></li>
-    <li><%= link_to "いいね一覧", likes_trainings_path %></li>
-    <li><%#= link_to "検索する", searches_path %></li>
-    <li><%= link_to 'ログアウト', destroy_user_session_path,method: :delete %></li>
-  <% elsif admin_signed_in? %>
-    <li><%= link_to "会員一覧", admin_users_path %></li>
-    <li><%= link_to "トレーニング一覧", admin_trainings_path %></li>
-    <li><%= link_to 'ログアウト', destroy_admin_session_path,method: :delete %></li>
-  <% else %>
-    <li>logo</li>
-    <li><%= link_to "top", root_path %></li>
-  </ul>
+    <%= link_to select_path, class: "nav-link" do %>
+      <button class="rounded-circle p-0" style="width:12rem;height:12rem;background-color: #BAD3FF;">
+        <i class="far fa-sticky-note fa-4x"></i>
+        <p class="font-weight-bold">Enlighten</p>
+      </button>
+    <% end %>
+    <%= link_to plans_path, class: "nav-link" do %>
+      <button class="rounded-circle p-0" style="width:12rem;height:12rem;background-color: #DCC2FF;">
+        <i class="far fa-sticky-note fa-4x"></i>
+        <p class="font-weight-bold">Encourage</p>
+      </button>
+    <% end %>
+    <%= link_to enables_path, class: "nav-link" do %>
+      <button class="rounded-circle p-0" style="width:12rem;height:12rem;background-color: #FFBEDA;">
+        <i class="far fa-sticky-note fa-4x"></i>
+        <p class="font-weight-bold">Enable</p></p>
+      </button>
+    <% end %>
   <% end %>
 </nav>

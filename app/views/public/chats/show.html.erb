@@ -12,8 +12,8 @@
       <% if chat.user_id == current_user.id %>
       <tbody>
         <tr>
-          <td>
-            <p style="text-align: left;">
+          <td colspan="3">
+            <p style="text-align: left; overflow-x: auto;">
               <%= chat.message %><br>
               <%= time_ago_in_words(chat.created_at) %>前
             </p>

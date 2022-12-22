@@ -1,12 +1,11 @@
-<div class="content-box">
+<div class="table-box">
   <table class="table">
     <tbody>
       <% merits.each do |merit| %>
         <tr>
           <td><%= merit.id %></td>
-          <td><%= merit.title %></td>
-          <td colspan="10"></td>
-          <td><%= link_to '編集', edit_merit_path(merit.id), class: "btn btn-success" %></td>
+          <td colspan="13", style="overflow-x: auto;"><%= merit.title %></td>
+          <td colspan="2"><%= link_to '編集', edit_merit_path(merit.id), class: "btn btn-success btn-sm" %></td>
         </tr>
       <% end %>
     </tbody>

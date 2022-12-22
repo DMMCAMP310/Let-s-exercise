@@ -9,7 +9,6 @@ class Public::PlansController < ApplicationController
     @plan = Plan.new(plan_params)
     @plan.user_id = current_user.id
     if @plan.save
-      flash[:notice] = "新しくプランを追加しました。"
       redirect_to plans_path
     else
       @plans = current_user.plans.all

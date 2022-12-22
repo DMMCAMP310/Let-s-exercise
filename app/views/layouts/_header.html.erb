@@ -12,10 +12,6 @@
         <button class="col-3 align-self-center navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-    <div class="d-flex flex-column mt-2">
-      <button class="col-3 align-self-center navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
     
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav ml-auto">
@@ -24,7 +20,6 @@
         <li class="text-center mx-2"><%= link_to "会員一覧", users_path,class: 'nav-link text-dark border rounded rounded-3 bg-white' %></li>
         <li class="text-center mx-2"><%= link_to "トレーニング一覧", trainings_path,class: 'nav-link text-dark border rounded rounded-3 bg-white' %></li>
         <li class="text-center mx-2"><%= link_to "いいね一覧", likes_trainings_path,class: 'nav-link text-dark border rounded rounded-3 bg-white' %></li>
-        <li class="text-center mx-2"><%= link_to "プラン一覧", plans_path,class: 'nav-link text-dark border rounded rounded-3 bg-white' %></li>
         <li class="text-center mx-2"><%= link_to 'ログアウト', destroy_user_session_path,method: :delete,class: 'nav-link text-dark border rounded rounded-3 bg-white' %></li>
   
       <% elsif admin_signed_in? %>

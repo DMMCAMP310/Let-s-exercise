@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   
   scope module: :public do
     root :to => 'homes#top'
+    get 'select' => 'homes#select'
     resources :users, only: [:show, :edit, :index, :update, :destroy] do
       resources :reports, only: [:new, :create]
       resource :relationships, only: [:create, :destroy]

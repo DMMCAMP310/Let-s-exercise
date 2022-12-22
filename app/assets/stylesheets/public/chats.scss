@@ -9,3 +9,9 @@
   margin : 100px;
   background-color : #FFFFFF;
 }
+
+@media (max-width: 767px) {
+  .chatroom{
+    width: 100%;
+  }
+}
