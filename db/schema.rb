@@ -70,7 +70,8 @@ ActiveRecord::Schema.define(version: 2022_12_21_105047) do
   end
 
   create_table "enables", force: :cascade do |t|
-    t.boolean "check_box", default: false, null: false
+    t.string "name"
+    t.integer "ratio"
     t.integer "plan_id", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false

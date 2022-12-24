@@ -13,15 +13,22 @@
         <tr>
           <td><%= enable.plan.id %></td>
           <td>
-            <%= enable.plan.title %><br>
-            <%= form_with model: enable, url: enable_path(enable), local:true, method: :post  do |f| %>
-              <%= collection_check_boxes(:enable, :week_ids, Week.all, :id, :name) do |b| %>
-                <%= b.label { b.check_box + b.text } %>
-              <% end %>
+            <%= enable.plan.title %>
+          </td>
+          <%= form_with model: enable, url: enable_path(enable), local:true, method: :patch  do |f| %>
+          <td>
+            <%= collection_check_boxes(:enable, :week_ids, Week.all, :id, :name) do |b| %>
+              <%= b.label { b.check_box + b.text } %>
             <% end %>
           </td>
-          <td colspan="4"></td>
-          <td>達成<%= select_tag 'name', options_for_select((0..100).to_a), include_blank: true %>%</td>
+          <td colspan="3"></td>
+          <td>達成<%= select_tag 'ratio', options_for_select((0..100).to_a), include_blank: true %>%</td>
+          <td>
+            <%= button_tag type: "submit", class: "btn btn-default" do %>
+              <i class="fas fa-sync"></i>
+            <% end %>
+          </td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>
