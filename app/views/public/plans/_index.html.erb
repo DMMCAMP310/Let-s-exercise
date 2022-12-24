@@ -3,15 +3,11 @@
     <tbody>
       <% plans.each do |plan| %>
         <tr>
-          <td><%= plan.id %></td>
-          <td colspan="13", style="overflow-x: auto;"><%= plan.title %></td>
-          <td><%= link_to '編集', edit_plan_path(plan.id), class: "btn btn-success btn-sm" %></td>
-          <td></td>
-          <td colspan="2">
-            <%= form_with model: enable, url: enables_path, method: :post do |f| %>
-              <%= f.hidden_field :plan_id, :value => plan.id %>
-              <%= f.submit '実施', class: "btn btn-info btn-sm" %>
-            <% end %>
+          <td style="border:none;"><%= plan.id %></td>
+          <td colspan="13", style="overflow-x: auto; border:none;"><%= plan.title %></td>
+          <td style="border:none;"><%= link_to '編集', edit_plan_path(plan.id), class: "btn btn-success btn-sm" %></td>
+          <td style="border:none;">
+            <%= link_to "実施",  plan_week_enables_path(plan), method: :post %>
           </td>
         </tr>
       <% end %>

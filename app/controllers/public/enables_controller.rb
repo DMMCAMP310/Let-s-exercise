@@ -27,6 +27,7 @@ class Public::EnablesController < ApplicationController
   end
 
   def create
+    
     if plan = Enable.find_by(plan_id: params[:enable][:plan_id], user_id: current_user.id)
     else
       @enable = Enable.new(enable_params)

@@ -29,6 +29,13 @@ class Public::PlansController < ApplicationController
     end
   end
   
+  def working
+    @plans = Plan.select do |plan|
+      plan.week_enables.count == 7
+    end
+    
+  end
+  
   private
   
   def plan_params

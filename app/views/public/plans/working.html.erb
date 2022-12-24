@@ -9,22 +9,24 @@
           </p>
         </td>
       </tr>
-      <% enables.each do |enable| %>
+      <% @plans.each do |plan| %>
         <tr>
           <td colspan="2" style="border:none;">
-            <%= enable.plan.id %>
-            <%= enable.plan.title %>
+            <%= plan.id %>
+            <%= plan.title %>
           </td>
         </tr>
         <tr>
-          <%= form_with model: enable, url: enable_path(enable), local:true, method: :patch  do |f| %>
+          <%= form_with  url: plan_week_enables_path(plan), local:true, method: :patch  do |f| %>
           <td style="border:none;">
-            <%= collection_check_boxes(:enable, :week_ids, Week.all, :id, :name) do |b| %>
-              <%= b.label { b.check_box + b.text } %>
+            <%= collection_check_boxes(:plan, :week_ids, Week.all, :id, :name) do |bbb| %>
+          
+              <%= bbb.label { bbb.check_box(checked: plan.week_enables.find_by(week_id: bbb.object.id).checked) + bbb.text } %>
             <% end %>
           </td>
           <td style="border:none;">
-            達成<%= select_tag 'ratio', options_for_select((0..100).to_a), include_blank: true %>%
+            <% ratio = ((plan.week_enables.where(checked: true).count.to_f / 7) * 100).round(1)%>
+            達成<%= ratio %>%
             <%= button_tag type: "submit", class: "btn btn-default" do %>
               <i class="fas fa-sync"></i>
             <% end %>
