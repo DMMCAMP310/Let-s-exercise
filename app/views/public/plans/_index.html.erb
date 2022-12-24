@@ -1,15 +1,13 @@
-<div class="table-box">
-  <table class="table">
-    <tbody>
-      <% plans.each do |plan| %>
-        <tr>
-          <td colspan="13", style="overflow-x: auto; border:none;"><%= plan.title %></td>
-          <td style="border:none;"><%= link_to '編集', edit_plan_path(plan.id), class: "btn btn-success btn-sm" %></td>
-          <td style="border:none;">
-            <%= link_to "実施",  plan_week_enables_path(plan), class: "btn btn-info btn-sm", method: :post %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+<table class="table">
+  <tbody>
+    <% plans.each do |plan| %>
+      <tr>
+        <td colspan="13", style="overflow-x: auto; border:none;"><%= plan.title %></td>
+        <td style="border:none;"><%= link_to '編集', edit_plan_path(plan.id), class: "btn btn-success btn-sm" %></td>
+        <td style="border:none;">
+          <%= link_to "実施",  plan_week_enables_path(plan), class: "btn btn-info btn-sm", method: :post %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

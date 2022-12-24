@@ -1,12 +1,10 @@
-<div class="table-box">
-  <table class="table">
-    <tbody>
-      <% merits.each do |merit| %>
-        <tr>
-          <td colspan="13", style="overflow-x: auto;"><%= merit.title %></td>
-          <td colspan="2"><%= link_to '編集', edit_merit_path(merit.id), class: "btn btn-success btn-sm" %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+<table class="table">
+  <tbody>
+    <% merits.each do |merit| %>
+      <tr>
+        <td colspan="13", style="overflow-x: auto; border:none;"><%= merit.title %></td>
+        <td colspan="2", style="border:none;"><%= link_to '編集', edit_merit_path(merit.id), class: "btn btn-success btn-sm" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
