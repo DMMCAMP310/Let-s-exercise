@@ -1,12 +1,4 @@
 class Public::WeekEnablesController < ApplicationController
-  def index
-    @enables = current_user.enables.all
-  end
-  
-  def show
-    @plan = Plan.find(param[:id])
-  end
-
   def update
     week_ids = params[:plan][:week_ids]
     
@@ -24,29 +16,12 @@ class Public::WeekEnablesController < ApplicationController
      redirect_to working_plans_path
   end
 
-  def destroy
-    @enable = Enable.find(params[:id])
-    @enable.destroy
-    @enable = Enable.all
-    redirect_to enables_path
-  end
-
-  def create
+ def create
     plan = Plan.find(params[:plan_id])
-    Week.all.each do |week|
-      plan.week_enables.create!(week_id: week.id)
-    end
+      Week.all.each do |week|
+        plan.week_enables.create(week_id: week.id)
+      end
     
     redirect_to working_plans_path
-  end
-
-  private
-
-  def enable_params
-    params.require(:enable).permit(:plan_id)
-  end
-  
-  def checkbox_params
-    params.require(:enable).permit(:name, week_ids:[])
   end
 end

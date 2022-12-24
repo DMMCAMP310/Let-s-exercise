@@ -2,7 +2,6 @@ class Public::PlansController < ApplicationController
   def index
     @plans = current_user.plans.all
     @plan = Plan.new
-    @enable = Enable.new
   end
   
   def create
@@ -30,10 +29,7 @@ class Public::PlansController < ApplicationController
   end
   
   def working
-    @plans = Plan.select do |plan|
-      plan.week_enables.count == 7
-    end
-    
+    @plans = current_user.plans.all
   end
   
   private

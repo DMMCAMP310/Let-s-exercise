@@ -3,11 +3,10 @@
     <tbody>
       <% plans.each do |plan| %>
         <tr>
-          <td style="border:none;"><%= plan.id %></td>
           <td colspan="13", style="overflow-x: auto; border:none;"><%= plan.title %></td>
           <td style="border:none;"><%= link_to '編集', edit_plan_path(plan.id), class: "btn btn-success btn-sm" %></td>
           <td style="border:none;">
-            <%= link_to "実施",  plan_week_enables_path(plan), method: :post %>
+            <%= link_to "実施",  plan_week_enables_path(plan), class: "btn btn-info btn-sm", method: :post %>
           </td>
         </tr>
       <% end %>

@@ -3,7 +3,6 @@
     <tbody>
       <% merits.each do |merit| %>
         <tr>
-          <td><%= merit.id %></td>
           <td colspan="13", style="overflow-x: auto;"><%= merit.title %></td>
           <td colspan="2"><%= link_to '編集', edit_merit_path(merit.id), class: "btn btn-success btn-sm" %></td>
         </tr>
