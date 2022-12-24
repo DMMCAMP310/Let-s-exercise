@@ -2,7 +2,6 @@ class Public::PlansController < ApplicationController
   def index
     @plans = current_user.plans.all
     @plan = Plan.new
-    @enable = Enable.new
   end
   
   def create
@@ -27,6 +26,10 @@ class Public::PlansController < ApplicationController
     else
       render :edit
     end
+  end
+  
+  def working
+    @plans = current_user.plans.all
   end
   
   private

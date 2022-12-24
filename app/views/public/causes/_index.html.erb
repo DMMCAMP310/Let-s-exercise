@@ -3,7 +3,6 @@
     <tbody>
       <% causes.each do |cause| %>
         <tr>
-          <td><%= cause.id %></td>
           <td colspan="13", style="overflow-x: auto;"><%= cause.title %></td>
           <td colspan="2"><%= link_to '編集', edit_cause_path(cause.id), class: "btn btn-success btn-sm" %></td>
         </tr>

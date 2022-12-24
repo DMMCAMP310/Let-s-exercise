@@ -2,21 +2,27 @@
   <nav class="sidebar_nav">
     <% if user_signed_in? %>
       <%= link_to select_path, class: "nav-link" do %>
-        <button class="rounded-circle p-0" style="width:8rem;height:8rem;background-color: #BAD3FF;">
-          <i class="far fa-sticky-note fa-4x"></i>
-          <p class="font-weight-bold">Enlighten</p>
+        <button class="rounded-circle p-0" style="background-color: #BAD3FF;">
+          <i class="far fa-sticky-note fa-3x"></i>
+          <p class="font-weight-bold">認識</p>
         </button>
       <% end %>
       <%= link_to plans_path, class: "nav-link" do %>
-        <button class="rounded-circle p-0" style="width:8rem;height:8rem;background-color: #DCC2FF;">
-          <i class="far fa-sticky-note fa-4x"></i>
-          <p class="font-weight-bold">Encourage</p>
+        <button class="rounded-circle p-0" style="background-color: #DCC2FF;">
+          <i class="far fa-sticky-note fa-3x"></i>
+          <p class="font-weight-bold">促進</p>
         </button>
       <% end %>
-      <%= link_to enables_path, class: "nav-link" do %>
-        <button class="rounded-circle p-0" style="width:8rem;height:8rem;background-color: #FFBEDA;">
-          <i class="far fa-sticky-note fa-4x"></i>
-          <p class="font-weight-bold">Enable</p></p>
+      <%= link_to working_plans_path, class: "nav-link" do %>
+        <button class="rounded-circle p-0" style="background-color: #FFBEDA;">
+          <i class="far fa-sticky-note fa-3x"></i>
+          <p class="font-weight-bold">有効</p></p>
+        </button>
+      <% end %>
+      <%= link_to new_training_path, data: {"turbolinks"=>false}, class: "nav-link" do %>
+        <button class="rounded-circle p-0" style="background-color: #FF6928;">
+          <i class="far fa-sticky-note fa-3x"></i>
+          <p class="font-weight-bold">作成</p>
         </button>
       <% end %>
     <% end %>

@@ -1,45 +1,48 @@
-<div class="chatroom">
-  <h2><%= @user.name %>さんとのチャット</h2>
 
-  <table class="message table">
-    <thead>
-      <tr>
-        <th style="text-align: left; font-size: 20px;"><%= current_user.name %></th>
-        <th style="text-align: right; font-size: 20px;"><%= @user.name %></th>
-      </tr>
-    </thead>
-    <% @chats.each do |chat| %>
-      <% if chat.user_id == current_user.id %>
-      <tbody>
+<div class="container">
+  <div class="chatroom">
+    <h2><%= @user.name %>さんとのチャット</h2>
+
+    <table class="message table">
+      <thead>
         <tr>
-          <td colspan="3">
-            <p style="text-align: left; overflow-x: auto;">
-              <%= chat.message %><br>
-              <%= time_ago_in_words(chat.created_at) %>前
-            </p>
-          </td>
+          <th style="text-align: left; font-size: 20px;"><%= current_user.name %></th>
+          <th style="text-align: right; font-size: 20px;"><%= @user.name %></th>
         </tr>
-      <% else %>
-        <tr>
-          <td></td>
-          <td>
-            <p style="text-align: right;">
-              <%= chat.message %><br>
-              <%= time_ago_in_words(chat.created_at) %>前
-            </p>
-          </td>
-        </tr>
-      </tbody>
+      </thead>
+      <% @chats.each do |chat| %>
+        <% if chat.user_id == current_user.id %>
+        <tbody>
+          <tr>
+            <td>
+              <p style="text-align: left; overflow-x: auto;">
+                <%= chat.message %><br>
+                <%= time_ago_in_words(chat.created_at) %>前
+              </p>
+            </td>
+          </tr>
+        <% else %>
+          <tr>
+            <td></td>
+            <td>
+              <p style="text-align: right;  overflow-x: auto;">
+                <%= chat.message %><br>
+                <%= time_ago_in_words(chat.created_at) %>前
+              </p>
+            </td>
+          </tr>
+        </tbody>
+        <% end %>
       <% end %>
+    </table>
+    <div class="errors">
+      <%= render "layouts/errors", obj: @chat %>
+    </div>
+    <%= form_with model: @chat, data: {remote: true} do |f| %>
+      <%= f.text_area :message, :size=>"70" %>
+      <%= f.hidden_field :room_id %>
+      <%= f.submit "SEND", class:"btn btn-sm btn-success chat-btn" %>
     <% end %>
-  </table>
-  <div class="errors">
-    <%= render "layouts/errors", obj: @chat %>
+    <p>50文字以内</p>
   </div>
-  <%= form_with model: @chat, data: {remote: true} do |f| %>
-    <%= f.text_area :message, :size=>"70" %>
-    <%= f.hidden_field :room_id %>
-    <%= f.submit "SEND", class:"btn btn-sm btn-success chat-btn" %>
-  <% end %>
-  <p>50文字以内</p>
 </div>
