@@ -6,6 +6,12 @@
   display : block;
   border : 1px solid black;
   padding : 20px;
-  margin : 100px;
+  margin-bottom : 10px;
   background-color : #FFFFFF;
+}
+
+@media (max-width: 767px) {
+  .chatroom{
+    width: 100%;
+  }
 }

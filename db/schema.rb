@@ -70,7 +70,8 @@ ActiveRecord::Schema.define(version: 2022_12_21_105047) do
   end
 
   create_table "enables", force: :cascade do |t|
-    t.boolean "check_box", default: false, null: false
+    t.string "name"
+    t.integer "ratio"
     t.integer "plan_id", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -160,11 +161,12 @@ ActiveRecord::Schema.define(version: 2022_12_21_105047) do
   end
 
   create_table "week_enables", force: :cascade do |t|
-    t.integer "enable_id", null: false
+    t.integer "plan_id", null: false
     t.integer "week_id", null: false
+    t.boolean "checked", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["enable_id"], name: "index_week_enables_on_enable_id"
+    t.index ["plan_id"], name: "index_week_enables_on_plan_id"
     t.index ["week_id"], name: "index_week_enables_on_week_id"
   end
 
@@ -178,6 +180,6 @@ ActiveRecord::Schema.define(version: 2022_12_21_105047) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "chats", "rooms"
   add_foreign_key "chats", "users"
-  add_foreign_key "week_enables", "enables"
+  add_foreign_key "week_enables", "plans"
   add_foreign_key "week_enables", "weeks"
 end

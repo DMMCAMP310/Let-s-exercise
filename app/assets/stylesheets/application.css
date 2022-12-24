@@ -23,21 +23,45 @@ body {
   word-break: break-all;
 }
 
-#back {
+main {
+  display: flex;
+  overflow-y: scroll;
+}
+
+.sidebar_nav {
+  display: flex;
+}
+
+#side {
   position: fixed;
-  right: 20px;
-  bottom: 50px;
+  right: 10px;
+  bottom: 10px;
 }
 
 .rounded-circle {
+  width: 7rem;
+  height: 7rem;
   text-align:center;
   line-height: 10px;
-  border: 0px none;
+  border: none;
   color: #FFFFFF;
-  background-color: #FF6928;
   background-size: cover;
 }
 
 table {
   white-space: nowrap;
+}
+
+@media (max-width: 767px) {
+  main {
+    width: 100%;
+  }
+  .rounded-circle {
+    width: 4rem;
+    height: 4rem;
+  }
+  
+  td {
+    display: block;
+  }
 }

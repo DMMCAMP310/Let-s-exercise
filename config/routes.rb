@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   
   scope module: :public do
     root :to => 'homes#top'
+    get 'select' => 'homes#select'
     resources :users, only: [:show, :edit, :index, :update, :destroy] do
       resources :reports, only: [:new, :create]
       resource :relationships, only: [:create, :destroy]
@@ -35,10 +36,17 @@ Rails.application.routes.draw do
       end
     end
     resources :chats, only: [:show, :create]
-    resources :plans, only: [:index, :create, :edit, :update]
+    resources :plans, only: [:index, :create, :edit, :update] do 
+        collection do 
+           get :working
+        end
+       patch "week_enables" => "week_enables#update"
+        resources :week_enables, only: [:create]
+    end
     resources :merits, only: [:index, :create, :edit, :update]
     resources :causes, only: [:index, :create, :edit, :update]
     resources :enables, only: [:index, :create, :update, :destroy]
+  
     get 'search' => 'searches#search'
   end
   

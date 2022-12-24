@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="select">
+    <% if user_signed_in? %>
+      <%= link_to merits_path, class: "nav-link" do %>
+        <button class="rounded-circle p-0" style="width:10rem;height:10rem;background-color: #FFAAFF">
+          <i class="far fa-sticky-note fa-7x"></i>
+          <p class="font-weight-bold">メリット</p>
+        </button>
+      <% end %>
+      <%= link_to causes_path, class: "nav-link" do %>
+        <button class="rounded-circle p-0" style="width:10rem;height:10rem;background-color: #008080;">
+          <i class="far fa-sticky-note fa-7x"></i>
+          <p class="font-weight-bold">原因の洗い出し</p>
+        </button>
+      <% end %>
+    <% end %>
+  </div>
+</div>
