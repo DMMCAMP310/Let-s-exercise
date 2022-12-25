@@ -25,7 +25,6 @@ body {
 
 main {
   display: flex;
-  overflow-y: scroll;
 }
 
 .sidebar_nav {
@@ -50,6 +49,26 @@ main {
 
 table {
   white-space: nowrap;
+}
+
+.title {
+  background: linear-gradient(transparent 80%, #FF773E 30%);
+  width: 280px;
+}
+
+.working {
+  background: linear-gradient(transparent 80%, #5D99FF 30%);
+  width: 700px;
+}
+
+.sub {
+  background: linear-gradient(transparent 90%, #75A9FF 30%);
+  width: 100px;
+}
+
+.rule {
+  background: linear-gradient(transparent 80%, #5D99FF 30%);
+  width: 230px;
 }
 
 @media (max-width: 767px) {
