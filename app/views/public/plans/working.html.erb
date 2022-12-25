@@ -14,7 +14,7 @@
             <td style="border:none;">
               <%= collection_check_boxes(:plan, :week_ids, Week.all, :id, :name) do |b| %>
 
-                <%= b.label { b.check_box(checked: plan.week_enables.find_by(week_id: b.object.id).checked) + b.text } %>
+                <%= b.label { b.check_box(checked: plan.week_enables.find_by(week_id: b.object.id).checked) } + b.text %>
               <% end %>
             </td>
             <td style="border:none;">
