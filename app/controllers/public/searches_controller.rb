@@ -9,8 +9,4 @@ class Public::SearchesController < ApplicationController
       @trainings = Training.looks(params[:search], params[:word])
     end
   end
-  
-  def index
-  end
-  
 end
