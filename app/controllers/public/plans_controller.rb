@@ -3,7 +3,7 @@ class Public::PlansController < ApplicationController
     @plans = current_user.plans.all
     @plan = Plan.new
   end
-  
+
   def create
     @plan = Plan.new(plan_params)
     @plan.user_id = current_user.id
@@ -14,11 +14,11 @@ class Public::PlansController < ApplicationController
       render :index
     end
   end
-  
+
   def edit
     @plan = Plan.find(params[:id])
   end
-  
+
   def update
     @plan = Plan.find(params[:id])
     if @plan.update(plan_params)
@@ -27,13 +27,19 @@ class Public::PlansController < ApplicationController
       render :edit
     end
   end
-  
+
   def working
-    @plans = current_user.plans.all
+    plans = current_user.plans.all
+    @plans = []
+    plans.each do |plan|
+      if plan.week_enables.size > 0
+        @plans.push(plan)
+      end
+    end
   end
-  
+
   private
-  
+
   def plan_params
     params.require(:plan).permit(:title)
   end

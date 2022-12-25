@@ -3,14 +3,6 @@
   <div class="content-box">
     <table class="table">
       <tbody>
-        <tr>
-          <td colspan="2" style="border:none;">
-            <p>
-              全体達成<%= select_tag 'name', options_for_select((0..100).to_a), include_blank: true %>%
-              90%達成でレベルアップ　60%以上達成で継続　60%以下でレベルダウン、見直し
-            </p>
-          </td>
-        </tr>
         <% @plans.each do |plan| %>
           <tr>
             <td colspan="2" style="border:none;">
