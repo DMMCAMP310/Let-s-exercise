@@ -1,6 +1,8 @@
 <div class="container">
   <div class="content-box">
     <h2>実施中</h2>
+    <%= link_to "実行を空にする", week_destroy_all_plans_path, method: :delete, data: { confirm: '本当に消しますか？' },  class: "btn btn-danger" %>
+    <%= link_to "リセット", week_update_all_plans_path, method: :patch, class: "btn btn-secondary" %>
     <table class="table">
       <tbody>
         <% @plans.each do |plan| %>
@@ -14,7 +16,7 @@
             <td style="border:none;">
               <%= collection_check_boxes(:plan, :week_ids, Week.all, :id, :name) do |b| %>
 
-                <%= b.label { b.check_box(checked: plan.week_enables.find_by(week_id: b.object.id).checked) } + b.text %>
+                <%= b.label { b.check_box(checked: plan.week_enables.find_by(week_id: b.object.id).checked)} + b.text %>
               <% end %>
             </td>
             <td style="border:none;">

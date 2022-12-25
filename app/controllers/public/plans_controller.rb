@@ -32,7 +32,7 @@ class Public::PlansController < ApplicationController
     plans = current_user.plans.all
     @plans = []
     plans.each do |plan|
-      if plan.week_enables.size > 0
+      if plan.week_enables.size != 0
         @plans.push(plan)
       end
     end

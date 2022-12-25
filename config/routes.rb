@@ -40,7 +40,11 @@ Rails.application.routes.draw do
         collection do 
            get :working
         end
-       patch "week_enables" => "week_enables#update"
+      patch "week_enables" => "week_enables#update"
+      collection do
+        patch "week_enable/update_all" => "week_enables#update_all" , as: "week_update_all"
+        delete "week_enable/destroy_all" => "week_enables#destroy_all" , as: "week_destroy_all"
+      end
         resources :week_enables, only: [:create]
     end
     resources :merits, only: [:index, :create, :edit, :update]
