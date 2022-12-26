@@ -12,22 +12,42 @@
         <button class="col-3 align-self-center navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-    
+
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav ml-auto">
       <% if user_signed_in? %>
-        <li class="text-center mx-2"><%= link_to "マイページ", user_path(current_user.id),class: 'nav-link text-dark border rounded rounded-3 bg-white' %></li>
-        <li class="text-center mx-2"><%= link_to "会員一覧", users_path,class: 'nav-link text-dark border rounded rounded-3 bg-white' %></li>
-        <li class="text-center mx-2"><%= link_to "トレーニング一覧", trainings_path,class: 'nav-link text-dark border rounded rounded-3 bg-white' %></li>
-        <li class="text-center mx-2"><%= link_to "いいね一覧", likes_trainings_path,class: 'nav-link text-dark border rounded rounded-3 bg-white' %></li>
-        <li class="text-center mx-2"><%= link_to 'ログアウト', destroy_user_session_path,method: :delete,class: 'nav-link text-dark border rounded rounded-3 bg-white' %></li>
-  
+        <li class="mx-2">
+          <%= link_to user_path(current_user.id),class: 'nav-link text-dark border rounded rounded-3 bg-white' do %>
+            <i class="fas fa-user"></i>マイページ
+          <% end %>
+        </li>
+        <li class="mx-2">
+          <%= link_to users_path,class: 'nav-link text-dark border rounded rounded-3 bg-white' do %>
+            <i class="fas fa-users"></i>会員一覧
+          <% end %>
+        </li>
+        <li class="mx-2">
+          <%= link_to trainings_path,class: 'nav-link text-dark border rounded rounded-3 bg-white' do %>
+            <i class="fas fa-walking"></i>トレーニング一覧
+          <% end %>
+        </li>
+        <li class="mx-2">
+          <%= link_to likes_trainings_path,class: 'nav-link text-dark border rounded rounded-3 bg-white' do %>
+            <i class="fas fa-heart"></i>いいね一覧
+          <% end %>
+        </li>
+        <li class="mx-2">
+          <%= link_to destroy_user_session_path,method: :delete,class: 'nav-link text-dark border rounded rounded-3 bg-white' do %>
+            <i class="fas fa-sign-out-alt"></i>ログアウト
+          <% end %>
+        </li>
+
       <% elsif admin_signed_in? %>
         <li class="text-center mx-2"><%= link_to "会員一覧", admin_users_path,class: 'nav-link text-dark border rounded rounded-3 bg-white' %></li>
         <li class="text-center mx-2"><%= link_to "トレーニング一覧", admin_trainings_path,class: 'nav-link text-dark border rounded rounded-3 bg-white' %></li>
         <li class="text-center mx-2"><%= link_to "通報一覧", admin_reports_path,class: 'nav-link text-dark border rounded rounded-3 bg-white' %></li>
         <li class="text-center mx-2"><%= link_to 'ログアウト', destroy_admin_session_path,method: :delete,class: 'nav-link text-dark border rounded rounded-3 bg-white' %></li>
-  
+
       <% else %>
         <li class="text-center mx-2">
           <%= link_to "新規登録", new_user_registration_path,class: 'nav-link text-dark border rounded rounded-3 bg-white' %>

@@ -5,7 +5,7 @@
     <% if @range == "User" %>
      　<%= render 'public/users/index', users: @users %>
     <% else %>
-  <!--検索対象モデルがUserではない時(= 検索対象モデルがBookの時) -->
+  <!--検索対象モデルがUserではない時(= 検索対象モデルがTrainingの時) -->
       <%= render 'public/trainings/index', trainings: @trainings %>
     <% end %>
   </div>
