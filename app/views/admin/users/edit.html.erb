@@ -1,12 +1,11 @@
 <div class="container">
   <div class='row'>
-    <div class='mx-auto col-11 col-sm-10 col-lg-8 col-xl-6'>
-      <h2>会員情報を編集する</h2>
+    <div class='content-box mx-auto col-11 col-sm-10 col-lg-8 col-xl-6'>
       <%= form_with model: @user, url: admin_user_path(@user.id), local:true do |f| %>
         <%= render 'layouts/errors', obj: @user %>
        
         <div class="form-group">
-          <%= f.label :ユーザー情報 %>
+          <%= f.label :ステータス %>
           <%= f.radio_button :is_deleted, 'false' %>
           <%= f.label :is_deleted, '有効' %>
           <%= f.radio_button :is_deleted, 'true' %>
