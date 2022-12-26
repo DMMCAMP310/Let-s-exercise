@@ -1,33 +1,31 @@
 <div class="container">
   <div class='row'>
-    <h3>通報一覧</h3>
-    <table class="table", bgcolor="#FFFFFF">
-      <thead>
-        <tr>
-          <th>通報ID</th>
-          <th>会員名</th>
-          <th>通報者</th>
-          <th>理由</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @reports.each do |report| %>
-          <tr>
-            <td>
-              <%= report.id %>
-            </td>
-            <td>
-              <%= report.reported.name %>
-            </td>
-            <td>
-              <%= link_to report.reporter.name, admin_user_path(report.reporter.id) %>
-            </td>
-            <td>
-              <%= report.reason %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+    <div class="content-box">
+      <h3>通報一覧</h3>
+      <% @reports.each do |report| %>
+      <div class="content-box">
+        <table class="table">
+          <thead style="border:none;">
+            <tr style="border:none;">
+              <th style="border:none;">通報ID</th>
+              <th style="border:none;">会員名</th>
+              <th style="border:none;">通報者</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr>
+                <td><%= report.id %></td>
+                <td><%= report.reported.name %></td>
+                <td><%= link_to report.reporter.name, admin_user_path(report.reporter.id) %></td>
+              </tr>
+          </tbody>
+        </table>
+        <div class="introduction">
+          <p class="font-weight-bold">理由</p>
+          <%= report.reason %>
+        </div>
+      </div>
+      <% end %>
+    </div>
   </div>
 </div>

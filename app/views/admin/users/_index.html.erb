@@ -4,12 +4,11 @@
     <table class="table">
       <thead style="border:none;">
         <tr style="border:none;">
-          <th style="border:none;">プロフィール画像</th>
-          <th style="border:none;">ニックネーム</th>
-          <th style="border:none;">メールアドレス</th>
-          <th style="border:none;">性別</th>
-          <th style="border:none;">年齢</th>
-          <th style="border:none;">ユーザー情報</th>
+          <th style="border:none;">画像</th>
+          <th style="border:none;">名前</th>
+          <th style="border:none;">メール</th>
+          <th style="border:none;"></th>
+          <th style="border:none;">状態</th>
           <th style="border:none;"></th>
         </tr>
       </thead>
@@ -18,8 +17,7 @@
           <td><%= image_tag user.get_profile_image, style: "border-radius: 50%; object-fit:cover;", size: '100x100' %></td>
           <td><%= user.name %></td>
           <td><%= user.email %></td>
-          <td><%= user.gender_i18n %></td>
-          <td><%= user.age %>歳</td>
+          <td></td>
           <td>
             <% if user.is_deleted == false %>
               <span class="text-success"><strong>有効</strong></span>
