@@ -36,6 +36,14 @@ class Public::WeekEnablesController < ApplicationController
     end
     redirect_to working_plans_path
   end
+  
+  def destroy
+    plan = Plan.find(params[:plan_id])
+      if plan.week_enables.size != 0
+          plan.week_enables.destroy_all
+      end
+    redirect_to working_plans_path
+  end
 
   def destroy_all
     plans = current_user.plans.all

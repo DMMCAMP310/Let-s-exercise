@@ -2,7 +2,7 @@
   <div class="content-box">
     <h2>実施中</h2>
     <%= link_to "空にする", week_destroy_all_plans_path, method: :delete, data: { confirm: '実施中を空にしますか？' },  class: "btn btn-danger" %>
-    <%= link_to "リセット", week_update_all_plans_path, method: :patch, class: "btn btn-secondary" %>
+    <%= link_to "☑リセット", week_update_all_plans_path, method: :patch, class: "btn btn-secondary" %>
     <table class="table">
       <tbody>
         <% @plans.each do |plan| %>
@@ -15,7 +15,6 @@
             <%= form_with  url: plan_week_enables_path(plan), local:true, method: :patch  do |f| %>
             <td style="border:none;">
               <%= collection_check_boxes(:plan, :week_ids, Week.all, :id, :name) do |b| %>
-
                 <%= b.label { b.check_box(checked: plan.week_enables.find_by(week_id: b.object.id).checked)} + b.text %>
               <% end %>
             </td>
@@ -24,6 +23,11 @@
               達成<%= ratio %>%
               <%= button_tag type: "submit", class: "btn btn-default" do %>
                 <i class="fas fa-sync"></i>
+              <% end %>
+            </td>
+            <td style="border:none;">
+              <%= link_to plan_week_enables_path(plan), method: :delete, class: 'nav-link', style: "color:gray;" do %>
+                <i class="fas fa-trash-alt fa-lg"></i>
               <% end %>
             </td>
             <% end %>

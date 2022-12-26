@@ -41,6 +41,8 @@ Rails.application.routes.draw do
            get :working
         end
       patch "week_enables" => "week_enables#update"
+      delete "week_enables" => "week_enables#destroy"
+      
       collection do
         patch "week_enable/update_all" => "week_enables#update_all" , as: "week_update_all"
         delete "week_enable/destroy_all" => "week_enables#destroy_all" , as: "week_destroy_all"
