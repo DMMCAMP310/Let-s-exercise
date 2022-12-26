@@ -27,7 +27,7 @@
 
       <div class="field row mb-3">
         <%= f.label :年齢, class: 'col-md-4' %><br />
-        <%= f.text_field :age, autofocus: true, placeholder: "20" %>
+        <%= f.number_field :age, min: 0, max:100 %>歳
       </div>
 
       <div class="form-group">
