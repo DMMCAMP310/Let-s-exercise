@@ -10,6 +10,7 @@ class Public::MeritsController < ApplicationController
     if @merit.save
       redirect_to merits_path
     else
+      @merits = current_user.merits.all
       render :index
     end
   end

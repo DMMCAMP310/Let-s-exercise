@@ -10,6 +10,7 @@ class Public::CausesController < ApplicationController
     if @cause.save
       redirect_to causes_path
     else
+      @causes = current_user.causes.all
       render :index
     end
   end
