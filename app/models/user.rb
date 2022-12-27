@@ -44,8 +44,7 @@ class User < ApplicationRecord
 
   def self.looks(search, word)
     if search != ""
-      User.where(["name LIKE?", "%#{word}%"])
-      User.where(["introduction LIKE?", "%#{word}%"])
+      User.where(["name LIKE(?) OR introduction LIKE(?) OR age LIKE(?)","%#{word}%", "%#{word}%", "%#{word}%",])
     else
       User.all
     end
