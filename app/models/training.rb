@@ -3,6 +3,7 @@ class Training < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :liked_users, through: :likes, source: :user
   has_many :training_comments, dependent: :destroy
+  has_many :notifications, dependent: :destroy
   
   validates :name, presence:true, length: {maximum: 20 }
   validates :goal, presence:true, length: {maximum: 20 }
@@ -18,5 +19,20 @@ class Training < ApplicationRecord
   
   def liked_by?(user)
     likes.exists?(user_id:user.id)
+  end
+  
+  def create_notification_by(current_user)
+    notification = current_user.active_notifications.new(
+      training_id: id,
+      visited_id: user_id,
+      action: 'training_comment'
+    )
+    if notification.visiter_id == notification.visited_id
+          notification.checked = true
+    end
+    
+    notification.save
+    if notification.valid?
+    end
   end
 end

@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  namespace :public do
-    get 'rooms/show'
-  end
   devise_for :users, controllers: {
     registrations: 'public/registrations',
     sessions: 'public/sessions',
@@ -51,6 +48,7 @@ Rails.application.routes.draw do
     end
     resources :merits, only: [:index, :create, :edit, :update]
     resources :causes, only: [:index, :create, :edit, :update]
+    resources :notifications, only: [:index, :destroy]
   
     get 'search' => 'searches#search'
   end

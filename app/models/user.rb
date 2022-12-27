@@ -20,6 +20,8 @@ class User < ApplicationRecord
   has_many :enables, dependent: :destroy
   has_many :causes, dependent: :destroy
   has_many :merits, dependent: :destroy
+  has_many :active_notifications, class_name: 'Notification', foreign_key: 'visiter_id', dependent: :destroy
+  has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
 
   has_one_attached :profile_image
   enum gender: { man:false, woman:true }
