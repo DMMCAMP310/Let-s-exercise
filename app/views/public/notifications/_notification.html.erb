@@ -1,0 +1,15 @@
+<% visiter = notification.visiter %>
+<% training = notification.training %>
+
+<ul>
+  <li>
+    <%= link_to user_path(visiter), style: "color:#66CCCC;" do %>
+      <%= image_tag visiter.get_profile_image, style: "border-radius: 50%; object-fit:cover;", size: '50x50' %>
+      <%= visiter.name %>
+    <% end %>さんが
+    <%= link_to training_path(notification.training_id), style: "color:#66CCCC;" do %>
+      <%= training.name.truncate(20)%>
+    <% end %>にコメントしました。
+    <%= " (#{time_ago_in_words(notification.created_at)} 前)" %>
+  </li>
+</ul>

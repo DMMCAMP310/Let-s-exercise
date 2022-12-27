@@ -5,6 +5,11 @@ class Public::TrainingCommentsController < ApplicationController
     comment.training_id = @training.id
     comment.save
     @training_comment = TrainingComment.new
+    @training.create_notification_by(current_user)
+    respond_to do |format|
+    format.html { redirect_to request.referer }
+    format.js
+    end
   end
   
   def destroy

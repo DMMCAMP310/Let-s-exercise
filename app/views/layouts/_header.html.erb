@@ -17,6 +17,21 @@
       <ul class="navbar-nav ml-auto">
       <% if user_signed_in? %>
         <li class="mx-2">
+          <% if unchecked_notifications.any? %>
+            <li>
+              <%= link_to notifications_path, class: "btn btn-light",style: "color:tomato;" do %>
+                <i class="fas fa-bell"></i>
+              <% end %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to notifications_path, class: "btn btn-light" do %>
+                <i class="fas fa-bell"></i>
+              <% end %>
+            </li>
+          <% end %>
+        </li>
+        <li class="mx-2">
           <%= link_to user_path(current_user.id),class: 'nav-link text-dark border rounded rounded-3 bg-white' do %>
             <i class="fas fa-user"></i>マイページ
           <% end %>
