@@ -17,10 +17,9 @@
       <%= render "layouts/errors", obj: @chat %>
     </div>
     <%= form_with model: @chat, data: {remote: true} do |f| %>
-      <%= f.text_area :message, :size=>"70" %>
+      <%= f.text_area :message, :size=>"30" %>
       <%= f.hidden_field :room_id %>
       <%= f.submit "SEND", class:"btn btn-sm btn-success chat-btn" %>
     <% end %>
-    <p>50文字以内</p>
   </div>
 </div>
