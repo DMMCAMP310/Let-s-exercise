@@ -1,0 +1,17 @@
+<% chats.each do |chat| %>
+  <% if chat.user_id == current_user.id %>
+    <div class="d-flex justify-content-start">
+      <div class="d-inline-block mychat mb-2">
+        <%= simple_format(chat.message) %>
+        <small><%= time_ago_in_words(chat.created_at) %>前</small>
+      </div>
+    </div>
+  <% else %>
+    <div class="d-flex justify-content-end">
+      <div class="d-inline-block say mb-2">
+        <%= simple_format(chat.message) %>
+        <small><%= time_ago_in_words(chat.created_at) %>前</small>
+      </div>
+    </div>
+  <% end %>
+<% end %>

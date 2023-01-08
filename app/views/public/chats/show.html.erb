@@ -1,40 +1,18 @@
-
 <div class="container">
   <div class="chatroom">
     <h2><%= @user.name %>さんとのチャット</h2>
 
-    <table class="message table">
+    <table class="table">
       <thead>
         <tr>
           <th style="text-align: left; font-size: 20px;"><%= current_user.name %></th>
           <th style="text-align: right; font-size: 20px;"><%= @user.name %></th>
         </tr>
       </thead>
-      <% @chats.each do |chat| %>
-        <% if chat.user_id == current_user.id %>
-        <tbody>
-          <tr>
-            <td>
-              <p style="text-align: left; overflow-x: auto;">
-                <%= chat.message %><br>
-                <%= time_ago_in_words(chat.created_at) %>前
-              </p>
-            </td>
-          </tr>
-        <% else %>
-          <tr>
-            <td></td>
-            <td>
-              <p style="text-align: right;  overflow-x: auto;">
-                <%= chat.message %><br>
-                <%= time_ago_in_words(chat.created_at) %>前
-              </p>
-            </td>
-          </tr>
-        </tbody>
-        <% end %>
-      <% end %>
     </table>
+    <div class="message">
+      <%= render partial: 'messages', locals: {chats: @chats} %>
+    </div>
     <div class="errors">
       <%= render "layouts/errors", obj: @chat %>
     </div>

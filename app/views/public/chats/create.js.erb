@@ -1,2 +1,2 @@
-$('.message').append("<p style='text-align: left;'><%= @chat.message %></p>");
-$('chats').val("")
+$('.message').html("<%= j(render partial: 'messages', locals: {chats: @chats}) %>");
+$('#chat_message').val("")

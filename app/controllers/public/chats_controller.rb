@@ -19,6 +19,7 @@ class Public::ChatsController < ApplicationController
 
   def create
     @chat = current_user.chats.new(chat_params)
+    @chats = Chat.where(room_id: chat_params[:room_id])
     render :validater unless @chat.save
   end
 

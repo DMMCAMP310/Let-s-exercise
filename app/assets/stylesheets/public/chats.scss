@@ -10,6 +10,24 @@
   background-color : #FFFFFF;
 }
 
+.mychat {
+  // display: block;
+  padding: 10px;
+  border-radius: 12px;
+  text-align: left;
+  overflow-x: auto;
+  background: #edf1ee;
+}
+
+.say {
+  // display: block;
+  padding: 10px;
+  border-radius: 12px;
+  text-align: right;
+  overflow-x: auto;
+  background: #edf1ee;
+}
+
 @media (max-width: 767px) {
   .chatroom{
     width: 100%;
