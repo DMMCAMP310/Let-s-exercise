@@ -34,3 +34,7 @@ class Public::CausesController < ApplicationController
     params.require(:cause).permit(:title)
   end
 end
+
+
+
+

@@ -18,7 +18,7 @@ class Training < ApplicationRecord
   end
   
   def liked_by?(user)
-    likes.exists?(user_id:user.id)
+    likes.exists?(user_id: user.id)
   end
   
   def create_notification_by(current_user)
@@ -35,4 +35,13 @@ class Training < ApplicationRecord
     if notification.valid?
     end
   end
+  
+  
+  def written_by?(current_user)
+    user == current_user 
+  end
+  
+  
+  
 end
+

@@ -63,4 +63,8 @@ class User < ApplicationRecord
   def active_for_authentication?
     super && (is_deleted == false)
   end
+  
+  def me?(current_user)
+    self == current_user
+  end
 end
