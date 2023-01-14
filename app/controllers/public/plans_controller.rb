@@ -30,7 +30,6 @@ class Public::PlansController < ApplicationController
 
   def working
     plans = current_user.plans.all
-    @plans = plan.enable_hoge
     @plans = []
     plans.each do |plan|
       if plan.week_enables.size != 0
