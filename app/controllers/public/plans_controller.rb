@@ -30,12 +30,7 @@ class Public::PlansController < ApplicationController
 
   def working
     plans = current_user.plans.all
-    @plans = []
-    plans.each do |plan|
-      if plan.week_enables.size != 0
-        @plans.push(plan)
-      end
-    end
+    @plans = Plan.get_enable_plans(plans)
   end
 
   private

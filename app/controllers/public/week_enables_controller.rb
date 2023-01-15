@@ -9,7 +9,7 @@ class Public::WeekEnablesController < ApplicationController
       if  week_ids.include?(week_enable.week.id.to_s)
         week_enable.update(checked: true)
       else
-         week_enable.update(checked: false)
+        week_enable.update(checked: false)
       end
     end
 
@@ -18,11 +18,7 @@ class Public::WeekEnablesController < ApplicationController
 
   def create
     plan = Plan.find(params[:plan_id])
-    if plan.week_enables.size == 0
-      Week.all.each do |week|
-        plan.week_enables.create(week_id: week.id)
-      end
-    end
+    plan.get_week_enable
 
     redirect_to working_plans_path
   end
@@ -36,12 +32,13 @@ class Public::WeekEnablesController < ApplicationController
     end
     redirect_to working_plans_path
   end
-  
+
   def destroy
     plan = Plan.find(params[:plan_id])
-      if plan.week_enables.size != 0
-          plan.week_enables.destroy_all
-      end
+    plan.delete_enable_plan
+      # if plan.week_enables.size != 0
+      #     plan.week_enables.destroy_all
+      # end
     redirect_to working_plans_path
   end
 
