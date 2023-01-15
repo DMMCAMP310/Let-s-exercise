@@ -29,7 +29,7 @@ class Training < ApplicationRecord
         action: 'training_comment'
       )
       
-      notification.save if notification.valid?
+      notification.save
     end
   end
   
