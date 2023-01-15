@@ -69,15 +69,6 @@ ActiveRecord::Schema.define(version: 2022_12_27_120653) do
     t.index ["user_id"], name: "index_chats_on_user_id"
   end
 
-  create_table "enables", force: :cascade do |t|
-    t.string "name"
-    t.integer "ratio"
-    t.integer "plan_id", null: false
-    t.integer "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "likes", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "training_id", null: false
@@ -103,6 +94,8 @@ ActiveRecord::Schema.define(version: 2022_12_27_120653) do
     t.integer "visiter_id", null: false
     t.integer "visited_id", null: false
     t.integer "training_id"
+    t.integer "room_id"
+    t.integer "chat_id"
     t.string "action"
     t.boolean "checked", default: false, null: false
     t.datetime "created_at", precision: 6, null: false

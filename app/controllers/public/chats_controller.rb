@@ -21,6 +21,12 @@ class Public::ChatsController < ApplicationController
     @chat = current_user.chats.new(chat_params)
     @chats = Chat.where(room_id: chat_params[:room_id])
     render :validater unless @chat.save
+    @room = @chat.room
+    @room.create_notification_dm(current_user, @chat.id)
+    respond_to do |format|
+    format.html { redirect_to request.referer }
+    format.js
+    end
   end
 
   private

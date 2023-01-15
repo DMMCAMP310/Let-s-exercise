@@ -22,17 +22,14 @@ class Training < ApplicationRecord
   end
   
   def create_notification_by(current_user)
-    notification = current_user.active_notifications.new(
-      training_id: id,
-      visited_id: user_id,
-      action: 'training_comment'
-    )
-    if notification.visiter_id == notification.visited_id
-          notification.checked = true
-    end
-    
-    notification.save
-    if notification.valid?
+    if user != current_user
+      notification = current_user.active_notifications.new(
+        training_id: id,
+        visited_id: user_id,
+        action: 'training_comment'
+      )
+      
+      notification.save if notification.valid?
     end
   end
   
@@ -44,4 +41,3 @@ class Training < ApplicationRecord
   
   
 end
-
