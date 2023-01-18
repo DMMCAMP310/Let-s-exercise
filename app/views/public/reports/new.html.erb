@@ -5,6 +5,10 @@
       <%= render 'layouts/errors', obj: @report %>
       <%= form_with model:[@user, @report] do |f| %>
         <div class="form-group">
+          <%= f.label :該当画像, class: 'col-md-4' %>
+          <%= f.file_field :image, accept: "image/*" %>
+        </div>
+        <div class="form-group">
           <%= f.label :内容, class: 'col-md-4' %>
           <%= f.text_area :reason, class:"form-control", style: "height:8rem;" %>
         </div>
