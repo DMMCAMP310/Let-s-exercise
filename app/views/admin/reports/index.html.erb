@@ -23,8 +23,6 @@
         <div class="report_image">
           <% if report.image.attached? %>
             <%= image_tag report.image, size: "300x300" %>
-          <% else %>
-            <%= image_tag 'no_image.jpg', size: "300x300" %>
           <% end %>
         </div>
         <div class="introduction">
