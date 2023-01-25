@@ -1,10 +1,12 @@
 class Public::TrainingsController < ApplicationController
+  before_action :is_matching_login_user, only: [:edit, :update]
+  
   def new
     @training = Training.new
   end
 
   def index
-    @trainings = Training.all
+    @trainings = Training.page(params[:page]).per(5).order(created_at: :desc)
   end
 
   def create
@@ -50,5 +52,11 @@ class Public::TrainingsController < ApplicationController
 
   def training_params
     params.require(:training).permit(:name, :introduction, :result, :food, :goal)
+  end
+  
+  def is_matching_login_user
+    @training = Training.find(params[:id])
+    @user = @training.user
+    redirect_to trainings_path unless @user == current_user
   end
 end

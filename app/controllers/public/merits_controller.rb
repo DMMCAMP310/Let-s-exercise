@@ -1,4 +1,6 @@
 class Public::MeritsController < ApplicationController
+  before_action :is_matching_login_user, only: [:edit, :update]
+  
   def index
     @merits = current_user.merits.all
     @merit = Merit.new
@@ -32,5 +34,11 @@ class Public::MeritsController < ApplicationController
   
   def merit_params
     params.require(:merit).permit(:title)
+  end
+  
+  def is_matching_login_user
+    @merit = Merit.find(params[:id])
+    @user = @merit.user
+    redirect_to merits_path unless @user == current_user
   end
 end

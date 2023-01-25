@@ -1,4 +1,6 @@
 class Public::CausesController < ApplicationController
+  before_action :is_matching_login_user, only: [:edit, :update]
+  
   def index
     @causes = current_user.causes.all
     @cause = Cause.new
@@ -32,6 +34,12 @@ class Public::CausesController < ApplicationController
 
   def cause_params
     params.require(:cause).permit(:title)
+  end
+  
+  def is_matching_login_user
+    @cause = Cause.find(params[:id])
+    @user = @cause.user
+    redirect_to causes_path unless @user == current_user
   end
 end
 
