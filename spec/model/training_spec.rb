@@ -3,24 +3,24 @@ require 'rails_helper'
 RSpec.describe 'Trainingモデルのテスト', type: :model do
   describe 'バリデーションのテスト' do
     subject { training.valid? }
-    
+
     let(:user) {create(:user) }
-    let!(:training) { build(:training, user_id: user.id) }
-    
+    let(:training) { build(:training, user_id: user.id) }
+
     context 'nameカラム' do
       it '空欄でないこと' do
         training.name = ''
         is_expected.to eq false
       end
     end
-    
+
     context 'goalカラム' do
       it '空欄でないこと' do
         training.goal = ''
         is_expected.to eq false
       end
     end
-    
+
     context 'introductionカラム' do
       it '空欄ではないこと' do
         training.introduction = ''
@@ -28,7 +28,7 @@ RSpec.describe 'Trainingモデルのテスト', type: :model do
       end
     end
   end
-  
+
   describe 'アソシエーションのテスト' do
     context 'Userモデルとの関係' do
       it 'N:1となっている' do
