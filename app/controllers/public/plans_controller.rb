@@ -1,4 +1,6 @@
 class Public::PlansController < ApplicationController
+  before_action :is_matching_login_user, only: [:edit, :update]
+
   def index
     @plans = current_user.plans.all
     @plan = Plan.new
@@ -37,5 +39,11 @@ class Public::PlansController < ApplicationController
 
   def plan_params
     params.require(:plan).permit(:title)
+  end
+  
+  def is_matching_login_user
+    @plan = Plam.find(params[:id])
+    @user = @plan.user
+    redirect_to plans_path unless @user == current_user
   end
 end
