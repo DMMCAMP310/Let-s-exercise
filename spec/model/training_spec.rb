@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Trainingモデルのテスト', type: :model do
+RSpec.describe Training, type: :model do
   describe 'バリデーションのテスト' do
     subject { training.valid? }
 
