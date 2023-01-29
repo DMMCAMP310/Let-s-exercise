@@ -2,6 +2,7 @@ FactoryBot.define do
   factory :user do
     name { Faker::Lorem.characters(number: 10) }
     email { Faker::Internet.email }
+    gender { false }
     introduction { Faker::Lorem.characters(number: 20) }
     age { Faker::Number.between(from: 5, to: 20) }
     password { 'password' }
