@@ -154,7 +154,7 @@ ActiveRecord::Schema.define(version: 2022_12_27_120653) do
     t.datetime "remember_created_at"
     t.string "name", null: false
     t.text "introduction", null: false
-    t.boolean "gender", default: false, null: false
+    t.boolean "gender", null: false
     t.boolean "is_deleted", default: false, null: false
     t.integer "age", null: false
     t.datetime "created_at", precision: 6, null: false
