@@ -27,7 +27,6 @@ class Plan < ApplicationRecord
       week_enables.destroy_all
     end
   end
-  
 
 
 end
