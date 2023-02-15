@@ -42,7 +42,7 @@ class Public::PlansController < ApplicationController
   end
   
   def is_matching_login_user
-    @plan = Plam.find(params[:id])
+    @plan = Plan.find(params[:id])
     @user = @plan.user
     redirect_to plans_path unless @user == current_user
   end
