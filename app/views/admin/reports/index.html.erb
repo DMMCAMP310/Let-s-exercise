@@ -15,8 +15,8 @@
           <tbody>
               <tr>
                 <td><%= report.id %></td>
-                <td><%= report.reported.name %></td>
-                <td><%= link_to report.reporter.name, admin_user_path(report.reporter.id) %></td>
+                <td><%= link_to report.reported.name, admin_user_path(report.reported.id) %></td>
+                <td><%= report.reporter.name %></td>
               </tr>
           </tbody>
         </table>
