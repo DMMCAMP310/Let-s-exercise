@@ -22,7 +22,7 @@ class Public::ChatsController < ApplicationController
     @chats = Chat.where(room_id: chat_params[:room_id])
     render :validater unless @chat.save
     @room = @chat.room
-    @room.create_notification_dm(current_user, @chat.id)
+    @room.create_notification_dm(current_user, @chat.id, @room.id)
     respond_to do |format|
     format.html { redirect_to request.referer }
     format.js
